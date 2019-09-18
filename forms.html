@@ -6,23 +6,40 @@
     <style>
         label {
             display: flex;
-            vertical-align: center;
+
         }
     </style>
 </head>
 <body>
 <form method="POST" action="https://request-inspector.glitch.me/">
 
-    <label for="email">Username</label>
-    <input id="email" name="email" type="text">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="text" placeholder="Email">
     <br>
 
     <label for="password">Password</label>
-    <input id="password" name="password" type="password">
+    <input id="password" name="password" type="password" placeholder="Password">
     <br>
 
     <label for="bio">Bio</label>
-    <textarea id="bio" name ="bio"></textarea>
+    <textarea id="bio" name ="bio" cols="35" rows="7" placeholder="Tell us how you're doing"></textarea>
+    <br>
+
+    <h2 style="margin-bottom: 5px">How did you hear about us?</h2>
+    <label for="billboard">Billboard<input id="billboard" name="hearaboutus" type="checkbox" value = "Billboard"></label>
+    <label for="radio">Radio<input id="radio" name="hearaboutus" type="checkbox" value = "Radio"></label>
+    <label for="internetAd">Internet Advertisement<input id="internetAd" name="hearaboutus" type="checkbox" value = "Billboard"></label>
+    <label for="other">Other<input id="other" name="hearaboutus" type="checkbox" value = "Billboard"></label>
+    <br>
+
+    <label for="browser_type">Please select browser type</label>
+    <select name="browser_type" id="browser_type">
+        <option value="chrome">Google Chrome</option>
+        <option value="safari">Safari</option>
+        <option value="internet_Explorer">Internet Explorer</option>
+        <option value="opera">Opera</option>
+        <option value="firefox">Firefox</option>
+    </select>
     <br>
 
     <input type="submit">
