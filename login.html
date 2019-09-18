@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    label.text {
+        text-align: center;
+        display: block;
+        font-size: 25px;
+
+    }
+    ::placeholder {
+        color: indianred;
+    }
+
+    input.text {
+        margin-bottom: 10px;
+    }
+
+    input.stay_logged {
+        width : 15px;
+        height : 15px;
+        margin-bottom: 10px
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+</head>
+<body style="text-align: center">
+<form action="post" action="https://request-inspector.glitch.me/">
+<label class = "text" for = "username">Username</label>
+<input class = "text" name = "username" type="text" id ="username" required autofocus="autofocus">
+
+<label class = "text" for = "email">Email Address</label>
+<input class = "text" name = "email" type="text" id ="email" required>
+
+<label class = "text" for = "password">Password</label>
+<input class = "text" name = "password" type="password" id ="password" required>
+<br>
+
+<label style = "font-size: 25px;margin-top: 10px" for = "stay_logged">Stay logged in for 2 weeks?</label>
+<br>
+<input class = "stay_logged" name ="stay_logged" type = "checkbox" id="stay_logged" checked>
+<br>
+
+<input style = "margin-top: 15px;font-size: 30px" type="submit" value ="Log In">
+</form>
+</body>
+</html>

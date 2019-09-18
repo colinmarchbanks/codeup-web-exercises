@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        label.text {
+            text-align: center;
+            display: block;
+            font-size: 25px;
+
+        }
+        ::placeholder {
+            color: indianred;
+            text-align: center;
+        }
+
+        input.text {
+            margin-bottom: 10px;
+        }
+
+        input.future_transactions {
+            width : 15px;
+            height : 15px;
+            margin-bottom: 10px
+        }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <title>checkout</title>
+
+    </head>
+<body style="text-align: center">
+<form action="post" action="https://request-inspector.glitch.me/">
+    <label class = "text" for = "card_holder">Cardholder's Name</label>
+    <input class = "text" name = "card_holder" type="text" id ="card_holder" required autofocus="autofocus">
+
+    <label class = "text" for = "card#">Card Number</label>
+    <input class = "text" name = "card#" type="text" id ="card#" required>
+
+    <label class = "text" for = "card_exp">Card Expiration</label>
+    <input class = "text" name = "card_exp" type="text" id ="card_exp" required placeholder="MM/YY">
+
+    <label class = "text" for = "card_secr">Card Security Code</label>
+    <input class = "text" name = "card_secr" type="text" id ="card_secr" required>
+
+    <label class = "text" for = "card_address">Card Address</label>
+    <input class = "text" name = "card_address" type="text" id ="card_address" required>
+    <br>
+
+    <label style = "font-size: 25px;margin-top: 10px" for = "future_transactions">Keep this card for future transactions?</label>
+    <br>
+    <input class = "future_transactions" name ="future_transactions" type = "checkbox" id="future_transactions">
+    <br>
+
+    <input style = "margin-top: 15px;font-size: 30px" type="submit" value ="Buy now!">
+</form>
+</body>
+</html>

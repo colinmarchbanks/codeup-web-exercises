@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+label.text {
+text-align: center;
+display: block;
+font-size: 25px;
+
+}
+::placeholder {
+color: indianred;
+}
+
+input.text {
+margin-bottom: 10px;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Property Search</title>
+</head>
+<body style="text-align: center">
+    <form action="get" action="https://request-inspector.glitch.me/">
+
+        <label class = "text" for="property_search">Property Search</label>
+        <input class = "text" type="text" id="property_search" name="property_search">
+
+        <label class = "text" for="sq_footage">Desired Square Footage</label>
+        <input class = "text" type="text" id="sq_footage" name="sq_footage">
+
+        <label class = "text" for="min_price">Minimum Price</label>
+        <input class = "text" type="text" id="min_price" name="min_price">
+
+        <label class = "text" for="max_price">Maximum Price</label>
+        <input class = "text" type="text" id="max_price" name="max_price">
+
+        <label class = "text" for="zipcode">Desired Zipcode</label>
+        <input class = "text" type="text" id="zipcode" name="zipcode">
+
+        <label class = "text" for="bedrooms">Minimum number of Bedrooms</label>
+        <input class = "text" type="text" id="bedrooms" name="bedrooms">
+
+        <label class = "text" for="bathrooms">Minimum number of Bathrooms</label>
+        <input class = "text" type="text" id="bathrooms" name="bathrooms">
+        <br>
+
+        <input style="font-size: 50px" type="submit" value="Search now">
+    </form>
+</body>
+</html>

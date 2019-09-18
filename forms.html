@@ -5,27 +5,31 @@
     <title>Register With Us</title>
     <style>
         label {
-            display: flex;
+            text-align: center;
+            display: block;
 
+        }
+        ::placeholder {
+            color: indianred;
         }
     </style>
 </head>
-<body>
+<body style="text-align: center">
 <form method="POST" action="https://request-inspector.glitch.me/">
 
     <label for="email">Email</label>
-    <input id="email" name="email" type="text" placeholder="Email">
+    <input id="email" name="email" type="text" placeholder="Email" required>
     <br>
 
     <label for="password">Password</label>
-    <input id="password" name="password" type="password" placeholder="Password">
+    <input id="password" name="password" type="password" placeholder="Password" required>
     <br>
 
     <label for="bio">Bio</label>
-    <textarea id="bio" name ="bio" cols="35" rows="7" placeholder="Tell us how you're doing"></textarea>
+    <textarea id="bio" name ="bio" cols="35" rows="7" placeholder="Tell us about yourself" required></textarea>
     <br>
 
-    <h2 style="margin-bottom: 5px">How did you hear about us?</h2>
+    <h3 style="margin-bottom: 5px">How did you hear about us?</h3>
     <label for="billboard">Billboard<input id="billboard" name="hearaboutus" type="checkbox" value = "Billboard"></label>
     <label for="radio">Radio<input id="radio" name="hearaboutus" type="checkbox" value = "Radio"></label>
     <label for="internetAd">Internet Advertisement<input id="internetAd" name="hearaboutus" type="checkbox" value = "Billboard"></label>

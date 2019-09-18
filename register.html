@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    label.text {
+        text-align: center;
+        display: block;
+        font-size: 25px;
+
+    }
+    ::placeholder {
+        color: indianred;
+    }
+
+    input.text {
+        margin-bottom: 10px;
+    }
+
+    input.news_letter {
+        width : 15px;
+        height : 15px;
+        margin-bottom: 10px
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+</head>
+<form action="post" action="https://request-inspector.glitch.me/">
+<body style="text-align: center">
+    <label class = "text" for = "username">Username</label>
+    <input class = "text" name = "username" type="text" id ="username" required autofocus="autofocus">
+
+    <label class = "text" for = "email">Email Address</label>
+    <input class = "text" name = "email" type="text" id ="email" required>
+
+    <label class = "text" for = "password">Password</label>
+    <input class = "text" name = "password" type="password" id ="password" required>
+
+    <label class = "text" for = "c_password">Confirm Password</label>
+    <input class = "text" name = "c_password" type="password" id ="c_password" required>
+    <br>
+
+    <label style = "font-size: 25px;margin-top: 10px" for = "news_letter">Sign me up for the news letter!</label>
+    <br>
+    <input class = "news_letter" name ="news_letter" type = "checkbox" id="news_letter" checked>
+    <br>
+
+    <input style = "margin-top: 15px;font-size: 30px" type="submit" value ="Create New Account!">
+</form>
+</body>
+</html>
