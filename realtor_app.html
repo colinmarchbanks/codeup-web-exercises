@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Realtor Application</title>
+</head>
+<body>
+    <form method="post" action = "https://request-inspector.glitch.me/">
+        <div style ="float: right">
+            <label for="received_date">Received on:</label>
+            <input type="text" id="received_date" placeholder="Date">
+
+            <label for="received_time">at:</label>
+            <input type="text" id="received_time" placeholder="Time">
+        </div>
+        <br>
+        <div style ="text-align: center">
+            <img style ="margin-left:auto;margin-right: auto;display: block;margin-top: 15px  "src="img/texas_realtor.jpeg" height = 50px width=50px>
+            <p style = "margin-top: 0;font-size: 15px">TEXAS ASSOCIATION OF REALTORS®</p>
+            <h2 style="margin-bottom: 0">RESIDENT LEASE APPLICATION</h2>
+            <p style = "margin-top: 0;margin-bottom: 0;font-size: 10px">USE OF THIS FORM BY PERSONS WHO ARE NOT MEMBERS OF THE TEXAS ASSOCIATION OF REALTOR® IS NOT AUTHORIZED</p>
+            <h6 style = "margin-bottom: 0;margin-top: 0">©Texas Association of REALTORS®, Inc. 2007</h6>
+            <h4>Each Occupant and co-applicant 18 years or older must submit a separate application.</h4>
+            <hr>
+        </div>
+
+        <div>
+            <label for="property_address">Property Address:</label>
+            <input size="182" type="text" name ="property_address" id="property_address">
+            <br>
+            &emsp;&emsp;&emsp;<label for="move_in">Anticipated: Move-in Date</label>
+            <input size="40" type="text" name ="move_in" id="move_in">
+            <label for="monthly_rent">Monthly Rent: $</label>
+            <input size="40" type="text" name ="monthly_rent" id="monthly_rent">
+            <label for="security_dep">Security Deposit: $</label>
+            <input size="40" type="text" name ="security_dep" id="security_dep">
+        </div>
+        <br>
+
+        <div>
+            <p style = "margin-bottom: 0">Applicant was referred to Landlord by:</p>
+            <input style = "margin-top: 0" type="checkbox" name="agent" id="agent">
+            <label style = "margin-top: 0" for="agent">Real estate agent</label>
+            <input size = "85" type="text" id="agent_name" name ="agent_name" placeholder="Name">
+            <input size = "92" type="text" id="agent_phone" name ="agent_phone" placeholder="Phone">
+            <br>
+            <input style = "margin-top: 0" type="checkbox" name="newspaper" id="newspaper">
+            <label style = "margin-top: 0" for="newspaper">Newspaper</label>
+            <input style = "margin-top: 0" type="checkbox" name="sign" id="sign">
+            <label style = "margin-top: 0" for="sign">Sign</label>
+            <input style = "margin-top: 0" type="checkbox" name="internet" id="internet">
+            <label style = "margin-top: 0" for="internet">Internet agent</label>
+            <input style = "margin-top: 0" type="checkbox" name="other" id="other">
+            <label style = "margin-top: 0" for="other">Other</label>
+            <input type="text" name ="other_text" size = "147">
+        </div>
+
+        <div style="margin-top: 25px">
+            <label for="applicant_name">Applicant's name (first,middle,last)</label>
+            <input type="text" id="applicant_name" name="applicant_name" size ="164">
+            &emsp;&emsp;&emsp;
+            Is there a co-applicant?
+            <label for="co_yes"><input type="radio" id="co_yes" name ="co_applicant">yes</label>
+            <label for="co_no"><input type="radio" id="co_no" name ="co_applicant">no</label>
+            &emsp;
+            <strong><em>If yes, co-applicant must submit a seperate application.</em></strong>
+            <br>
+            &emsp;&emsp;&emsp;
+            <label for="maiden_name">Applicant's former last name (maiden or married)</label>
+            <input type="text" id="maiden_name" name="maiden_name" size="140">
+            <br>
+            <label for="email">E-mail</label>
+            <input type="text" name="email" id="email" size="86">
+            <label for="home#">Home Phone</label>
+            <input type="text" name="home#" id="home#" size="91">
+            <label for="work#">Work Phone</label>
+            <input type="text" name="work#" id="work#" size="91">
+            <label for="mobile#">Mobile</label>
+            <input type="text" name="mobile#" id="mobile#" size="86">
+            <br>
+            <label for="social">Soc. Sec. No.</label>
+            <input size = "50" type="text" name="social" id="social">
+            <label for="divers">Driver's Licence No.</label>
+            <input size = "52" type="text" name="divers" id="divers">
+            <label for="diver_state">in</label>
+            <input size = "54" type="text" name="diver_state" id="diver_state" placeholder="state">
+            <label for="dob">Date of Birth</label>
+            <input size = "38" type="text" name="dob" id="dob">
+            <label for="height">Height</label>
+            <input size = "38" type="text" name="height" id="height">
+            <label for="weight">Weight</label>
+            <input size = "38" type="text" name="weight" id="weight">
+            <label for="eye_color">Eye Color</label>
+            <input size = "38" type="text" name="eye_color" id="eye_color">
+            <label for="hair">Hair Color</label>
+            <input size = "54" type="text" name="hair" id="hair">
+            <label for="martial">Martial Status</label>
+            <input size = "54" type="text" name="martial" id="martial">
+            <label for="citizenship">Citizenship</label>
+            <input size = "48" type="text" name="citizenship" id="citizenship" placeholder="country">
+        </div>
+
+        <div style="margin-top: 10px">
+            Emergency Contact:&emsp;&emsp;
+            <label for="emergency_name">Name:</label>
+            <input type="text" id="emergency_name" size = "167">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="emergency_address">Address:</label>
+            <input type="text" id="emergency_address" size = "165">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="emergency_phone">Phone:</label>
+            <input type="text" id="emergency_phone" size = "80">
+            <label for="emergency_email">E-mail:</label>
+            <input type="text" id="emergency_email" size = "76">
+        </div>
+
+        <div style = "margin-top: 20px">
+            Name all other person who will occupy the Property:
+            <br>
+            <label for="occupant1_name">Name:</label>
+            <input size = "80" type="text" id="occupant1_name" name = "occupant1_name">
+            <label for="occupant1_relation">Relationship:
+            </label>
+            <input size = "45" type="text" id="occupant1_relation" name = "occupant1_relation">
+            <label for="occupant1_age">Age:
+            </label>
+            <input size = "45" type="text" id="occupant1_age" name = "occupant1_age">
+            <br>
+            <label for="occupant2_name">Name:</label>
+            <input size = "80" type="text" id="occupant2_name" name = "occupant2_name">
+            <label for="occupant2_relation">Relationship:
+            </label>
+            <input size = "45" type="text" id="occupant2_relation" name = "occupant2_relation">
+            <label for="occupant2_age">Age:
+            </label>
+            <input size = "45" type="text" id="occupant2_age" name = "occupant2_age">
+            <br>
+            <label for="occupant3_name">Name:</label>
+            <input size = "80" type="text" id="occupant3_name" name = "occupant3_name">
+            <label for="occupant3_relation">Relationship:
+            </label>
+            <input size = "45" type="text" id="occupant3_relation" name = "occupant3_relation">
+            <label for="occupant3_age">Age:
+            </label>
+            <input size = "45" type="text" id="occupant3_age" name = "occupant3_age">
+            <br>
+            <label for="occupant4_name">Name:</label>
+            <input size = "80" type="text" id="occupant4_name" name = "occupant4_name">
+            <label for="occupant4_relation">Relationship:
+            </label>
+            <input size = "45" type="text" id="occupant4_relation" name = "occupant4_relation">
+            <label for="occupant4_age">Age:
+            </label>
+            <input size = "45" type="text" id="occupant4_age" name = "occupant4_age">
+            <br>
+        </div>
+
+        <div style = "margin-top: 25px">
+            <label for="current_address">Applicant's Current Address:</label>
+            <input size = "140" type="text" id = "current_address" name="current_address">
+            <label for="current_apt#">Apt. No.</label>
+            <input type="text" id = "current_apt#" name="current_apt#">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;            &emsp;&emsp;&emsp;
+
+            <input style = "text-align: center" type="text" id="current_city_st_zip" name="current_city_st_zip" placeholder="city,state,zip" size = "173">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="current_landlord">Landlord's Name:</label>
+            <input size = "70" type="text" id="current_landlord" name="current_landlord">
+            <label for="current_landlord_email">Email:</label>
+            <input size = "74"type="text" id="current_landlord_email" name="current_landlord_email">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="current_landlord_number_day">Phone:<em>Day:</em></label>
+            <input size = "33" type="text" id="current_landlord_number_day" name="current_landlord_number_day">
+            <label for="current_landlord_number_night"><em>Night:</em></label>
+            <input size = "33" type="text" id="current_landlord_number_night" name="current_landlord_number_night">
+            <label for="current_landlord_number_mobile"><em>Mobile:</em></label>
+            <input size = "32" type="text" id="current_landlord_number_mobile" name="current_landlord_number_mobile">
+            <label for="current_landlord_number_fax"><em>Fax:</em></label>
+            <input size = "32" type="text" id="current_landlord_number_fax" name="current_landlord_number_fax">
+            <br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="current_move_in">Date Moved-in</label>
+            <input size="42" type="text" name ="current_move_in" id="current_move_in">
+            <label for="current_move_out">Move-Out Date: </label>
+            <input size="42" type="text" name ="current_move_out" id="current_move_out">
+            <label for="current_rent">Rent $</label>
+            <input size="42" type="text" name ="current_rent" id="current_rent">
+            <br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="current_move_reason">Reason for move:</label>
+            <input size = "154" type="text" id="current_move_reason" name="current_move_reason">
+        </div>
+
+        <div style = "margin-top: 25px">
+            <label for="prev_address">Applicant's Previous Address:</label>
+            <input size = "140" type="text" id = "prev_address" name="prev_address">
+            <label for="prev_apt#">Apt. No.</label>
+            <input type="text" id = "prev_apt#" name="prev_apt#">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;            &emsp;&emsp;&emsp;
+
+            <input style = "text-align: center" type="text" id="prev_city_st_zip" name="prev_city_st_zip" placeholder="city,state,zip" size = "175">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="prev_landlord">Previous Landlord's Name:</label>
+            <input size = "70" type="text" id="prev_landlord" name="prev_landlord">
+            <label for="prev_landlord_email">Email:</label>
+            <input size = "65"type="text" id="prev_landlord_email" name="prev_landlord_email">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="prev_landlord_number_day">Phone:<em>Day:</em></label>
+            <input size = "32" type="text" id="prev_landlord_number_day" name="prev_landlord_number_day">
+            <label for="prev_landlord_number_night"><em>Night:</em></label>
+            <input size = "32" type="text" id="prev_landlord_number_night" name="prev_landlord_number_night">
+            <label for="prev_landlord_number_mobile"><em>Mobile:</em></label>
+            <input size = "34" type="text" id="prev_landlord_number_mobile" name="prev_landlord_number_mobile">
+            <label for="prev_landlord_number_fax"><em>Fax:</em></label>
+            <input size = "34" type="text" id="prev_landlord_number_fax" name="prev_landlord_number_fax">
+            <br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="prev_move_in">Date Moved-in</label>
+            <input size="42" type="text" name ="prev_move_in" id="prev_move_in">
+            <label for="prev_move_out">Move-Out Date: </label>
+            <input size="42" type="text" name ="prev_move_out" id="prev_move_out">
+            <label for="prev_rent">Rent $</label>
+            <input size="43" type="text" name ="prev_rent" id="prev_rent">
+            <br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="prev_move_reason">Reason for move:</label>
+            <input size = "155"  type="text" id="prev_move_reason" name="prev_move_reason">
+        </div>
+
+        <div style = "margin-top: 25px">
+            <label for="employer">Applicant's Current Employer:</label>
+            <input size="172" type="text" id="employer" name="employer">
+            <br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="employer_address">Address:</label>
+            <input size="166" type="text" id="employer_address" name="employer_address" placeholder="street,city,state,zip">
+            <br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="supervisor_name">Supervisor's Name:</label>
+            <input size = "45" type="text" id="supervisor_name" name="supervisor_name">
+            <label for="supervisor_phone">Phone:</label>
+            <input size = "45" type="text" id="supervisor_phone" name="supervisor_phone">
+            <label for="supervisor_fax">Fax:</label>
+            <input size = "45" type="text" id="supervisor_fax" name="supervisor_fax">
+            <br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="supervisor_email">E-mail:</label>
+            <input size = "167" type="text" id="supervisor_email" name="supervisor_email">
+            <br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <label for="state_date">State Date:</label>
+            <input size = "40" type="text" id="state_date" name="state_date">
+            <label for="monthly_income">Gross Monthly Income: $</label>
+            <input size = "40" type="text" id="monthly_income" name="monthly_income">
+            <label for="position">Position:</label>
+            <input size = "40" type="text" id="position" name="position">
+            <br>
+
+        </div>
+
+        <footer style = "text-align: left;margin-top: 25px">
+            (TAR-2003) 10-16-07
+            <span style="float: right">Page 1 of 4</span>
+
+
+        </footer>
+
+
+    </form>
+</body>
+</html>
