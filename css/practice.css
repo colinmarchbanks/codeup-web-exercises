@@ -1,0 +1,11 @@
+h1{
+    color:red;
+    font-family:Arial;
+    font-weight: lighter;
+}
+.fancy-header{
+    font-family: 'Chilanka', cursive;
+}
+#main-heading{
+    color:blue;
+}

@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
+    <link rel="stylesheet" href="css/welcome.css">
+    <link href="https://fonts.googleapis.com/css?family=Antic+Didone&display=swap" rel="stylesheet">
 </head>
 <body>
     <hr id ="top">
-    <h2>Welcome to Veridian Dynamics!</h2>
-    <p>At Veridian Dynamics, <strong>we</strong> solve <em>your</em> problems with <strong><em>technology</em></strong>.</p>
+    <h2 class="main-heading">Welcome to Veridian Dynamics!</h2>
+    <p class="main-heading">At Veridian Dynamics, <strong>we</strong> solve <em>your</em> problems with <strong><em>technology</em></strong>.</p>
+
+    <nav>
+        <ol class = "nav">
+            <li><a href=""> About</a></li>
+            <li><a href="">Rewards</a></li>
+            <li><a href="">Members Portal</a></li>
+            <li><a href="">Partners</a></li>
+            <li><a href="">Support</a></li>
+        </ol>
+    </nav>
+
     <hr>
     <h3>Core Values</h3>
     <ul>
@@ -17,9 +30,9 @@
     </ul>
     <h3>Our Process</h3>
     <ol>
-        <li>Plan</li>
-        <li>Evaluate</li>
-        <li>Implement</li>
+        <li><span>Plan</span></li>
+        <li><span>Evaluate</span></li>
+        <li><span>Implement</span></li>
     </ol>
     <h3>2020 Vision</h3>
     <ul>
@@ -28,41 +41,51 @@
         <li>Increase Business by 30%</li>
     </ul>
     <hr>
-    <h3>Company Vision</h3>
+    <h3>Our Vision</h3>
     <table id ="images">
         <tr>
-            <td><img src ="img/image_1.jpeg" height="200" width="300" alt = "Image 1"></td>
-            <td><img src = "img/image_2.jpeg" height="200" width="300" alt = "Image 2"></td>
+            <td><img src ="img/image_1.jpeg" height="400" width="600" alt = "Image 1"></td>
+            <td><img src = "img/image_2.jpeg" height="400" width="600" alt = "Image 2"></td>
         </tr>
         <tr>
-            <td><img src ="img/image_3.jpeg" height="200" width="300" alt = "Image 3"></td>
-            <td><img src ="img/image_4.jpeg" height="200" width="300" alt = "Image 4"></td>
+            <td><img src ="img/image_3.jpeg" height="400" width="600" alt = "Image 3"></td>
+            <td><img src ="img/image_4.jpeg" height="400" width="600" alt = "Image 4"></td>
         </tr>
     </table>
+    <form method = "post" action="https://request-inspector.glitch.me/">
     <h3>Our Product</h3>
-    <table>
+    <table class ="product">
         <tr>
             <th>Plan</th>
             <th>Price</th>
             <th>Features</th>
+            <th>Purchase</th>
         </tr>
         <tr>
-            <td>Starter</td>
-            <td>$99</td>
-            <td>Base Technology</td>
+            <td><label for = "starter_radio">Starter</label></td>
+            <td><label for = "starter_radio">$99</label></td>
+            <td><label for = "starter_radio">Base Technology</label></td>
+            <td><label for = "starter_radio"><input type="radio" id="starter_radio" name = "option_radio" value="standard"></label></td>
         </tr>
         <tr>
-            <td>Advanced</td>
-            <td>$199</td>
-            <td>Additional Features</td>
+            <td><label for="advanced_radio">Advanced</label></td>
+            <td><label for="advanced_radio">$199</label></td>
+            <td><label for="advanced_radio">Additional Features</label></td>
+            <td><label for="advanced_radio"><input type="radio" id="advanced_radio" name = "option_radio" value="advanced"></label></td>
         </tr>
         <tr>
-            <td>Premium</td>
-            <td>$499</td>
-            <td>Unlimited Support</td>
+            <td><label for="premium_radio">Premium</label></td>
+            <td><label for="premium_radio">$499</label></td>
+            <td><label for="premium_radio">Unlimited Support</label></td>
+            <td><label for="premium_radio"><input type="radio" id="premium_radio" name = "option_radio" value="premium"></label></td>
         </tr>
     </table>
-    <p><em>All products come with our quality guarantee™</em></p>
+    <br>
+    <input type="submit" value = "Purchase Now">
+    <br>
+    <p class="micro_text"><em>All products come with our quality guarantee™</em></p>
+    <br>
     <a href="#top">Go to the top of the page.</a>
+    </form>
 </body>
 </html>
