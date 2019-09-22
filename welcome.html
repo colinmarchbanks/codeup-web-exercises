@@ -8,38 +8,49 @@
 </head>
 <body>
     <hr id ="top">
-    <h2 class="main-heading">Welcome to Veridian Dynamics!</h2>
-    <p class="main-heading">At Veridian Dynamics, <strong>we</strong> solve <em>your</em> problems with <strong><em>technology</em></strong>.</p>
-
-    <nav>
-        <ol class = "nav">
-            <li><a href=""> About</a></li>
-            <li><a href="">Rewards</a></li>
-            <li><a href="">Members Portal</a></li>
-            <li><a href="">Partners</a></li>
-            <li><a href="">Support</a></li>
-        </ol>
-    </nav>
+    <div class="main-heading">
+        <h2>Welcome to Veridian Dynamics!</h2>
+        <p>At Veridian Dynamics, <strong>we</strong> solve <em>your</em> problems with <strong><em>technology</em></strong>.</p>
+    </div>
+    <div id="navbar">
+            <a href=""> About</a>
+            <a href="">Rewards</a>
+            <a href="">Members Portal</a>
+            <a href="">Partners</a>
+            <a href="">Support</a>
+    </div>
 
     <hr>
-    <h3>Core Values</h3>
-    <ul>
-        <li>Competence</li>
-        <li>Involvement</li>
-        <li>Technology</li>
-    </ul>
-    <h3>Our Process</h3>
-    <ol>
-        <li><span>Plan</span></li>
-        <li><span>Evaluate</span></li>
-        <li><span>Implement</span></li>
-    </ol>
-    <h3>2020 Vision</h3>
-    <ul>
-        <li>Become #1 in Technology</li>
-        <li>Increases Success by 20%</li>
-        <li>Increase Business by 30%</li>
-    </ul>
+    <button type="button" class="collapsible"><h3>Core Values</h3></button>
+    <div class="content">
+        <ul>
+            <li>Competence</li>
+            <li>Involvement</li>
+            <li>Technology</li>
+        </ul>
+    </div>
+    <button type="button" class="collapsible"><h3>Our Process</h3></button>
+    <div class="content">
+        <ol>
+            <li><span>Plan</span></li>
+            <li><span>Evaluate</span></li>
+            <li><span>Implement</span></li>
+        </ol>
+    </div>
+    <button type="button" class="collapsible"><h3>2020 Vision</h3></button>
+    <div class="content">
+        <ul>
+            <li>Become #1 in Technology</li>
+            <li>Increases Success by 20%</li>
+            <li>Increase Business by 30%</li>
+        </ul>
+    </div>
+
+
+
+
+
+
     <hr>
     <h3>Our Vision</h3>
     <table id ="images">
@@ -87,5 +98,6 @@
     <br>
     <a href="#top">Go to the top of the page.</a>
     </form>
+    <script src="js/welcome.js"></script>
 </body>
 </html>
