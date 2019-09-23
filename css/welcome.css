@@ -1,5 +1,4 @@
 .main-heading{
-    padding-top: 28px;
     text-align: center;
 }
 
@@ -136,7 +135,7 @@ h1.vision{
 #navbar {
     overflow: hidden;
     background-color: #2762a1;
-    position : fixed;
+    position : sticky;
     top: 0;
     width: 100%;
 }
@@ -148,6 +147,7 @@ h1.vision{
     text-align: center;
     padding: 14px 7% 14px 7%;
     text-decoration: none;
+
 }
 
 #navbar a:hover {
@@ -172,6 +172,7 @@ h1.vision{
     outline: none;
     font-size: 15px;
     border-radius: 5px;
+    position: relative;
 }
 .active, .collapsible:hover {
     color: #2762a1;

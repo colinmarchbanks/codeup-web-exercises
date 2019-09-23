@@ -1,12 +1,12 @@
 :root{
-    --info-bg-color:lightskyblue;
-    --info-color:blue;
-    --success-bg-color:lightgreen;
-    --success-color:green;
-    --warning-bg-color:#f4f5ab;
-    --warning-color:goldenrod;
-    --error-bg-color:#d18484;
-    --error-color:#ab3232;
+    --info-bg-color:#CDDEFF;
+    --info-color:#797CC2;
+    --success-bg-color:#CFF3DA;
+    --success-color:#227946;
+    --warning-bg-color:#FCFBC9;
+    --warning-color:#9B8B2A;
+    --error-bg-color:#FAD3D7;
+    --error-color:#9A3D53;
 }
 
 body, html {
@@ -22,6 +22,7 @@ body, html {
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
+    width: 80%;
 }
 
 .message-info{
