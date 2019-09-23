@@ -1,11 +1,33 @@
-h1{
-    color:red;
-    font-family:Arial;
-    font-weight: lighter;
-}
+/*h1{*/
+/*    color:red;*/
+/*    font-family:Arial;*/
+/*    font-weight: lighter;*/
+/*}*/
 .fancy-header{
     font-family: 'Chilanka', cursive;
 }
 #main-heading{
     color:blue;
 }
+
+.box{
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    margin: 5px;
+    border: solid black 1px;
+}
+
+#box2{
+    box-sizing: border-box;
+}
+
+#orange:hover{
+    color: orange;
+}
+
+#red:hover{
+    color: red;
+}
+
+
