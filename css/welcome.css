@@ -168,14 +168,15 @@ h1.vision{
     padding: 0;
     margin-right: 35%;
     margin-left: 35%;
-    border: none;
     text-align: center;
     outline: none;
     font-size: 15px;
+    border-radius: 5px;
 }
 .active, .collapsible:hover {
     color: #2762a1;
     background-color: #49b8a3;
+
 }
 .content {
     padding: 0 18px;
