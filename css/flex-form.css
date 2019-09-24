@@ -57,11 +57,13 @@ body {
     justify-content: center;
     align-items: center;
 
+
 }
 .flex-form {
     /* flex items */
     display: flex;
     margin: auto;
+
 
 }
 .destination {
