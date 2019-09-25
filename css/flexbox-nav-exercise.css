@@ -4,33 +4,32 @@ nav{
     box-sizing: border-box;
     justify-content: center;
     background-color: gray;
-
+    position: fixed;
+    left: 0;
+    right: 0;
 }
 
-nav img{
-    height:15px ;
-    width:15px;
-}
 
 nav a{
-    padding: 0 .5em;
+    padding: 1.0em .5em;
+    margin: .5em 0;
     font-family: 'Work Sans', sans-serif;
     text-decoration: none;
     color: black;
+    text-align: center;
 }
 
 nav a:nth-of-type(4){
-    /*flex-grow: 1;*/
+    margin-right: auto;
+
 }
 
-    nav a:nth-of-type(5){
-        margin-right: auto;
-        margin-left: 20.5%;
-        /*margin: auto;*/
-        /*align-content: center;*/
-        /*position: absolute;*/
-        /*top: 0; left: 0; bottom: 0; right: 0;*/
-    }
+nav a:nth-of-type(5){
+    position: absolute;
+    padding: 0;
+    margin: 0;
+
+}
 
 nav a:hover{
     color: blue;
@@ -44,5 +43,4 @@ nav p{
     font-family: 'Montserrat', sans-serif;
     align-items: center;
     text-align: center;
-    flex-direction: column;
 }
