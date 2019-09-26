@@ -1,0 +1,47 @@
+html{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: inline-grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 7fr 1fr 1fr;
+    grid-gap: .5em;
+
+}
+
+header{
+    background-color: #9ACD32;
+    grid-area: 1 / 1 / 2 / 3;
+    padding: 1em;
+}
+
+nav{
+    background-color: #9ACD32;
+    grid-area: 2 / 1 / 4 / 2;
+    padding: 1em;
+}
+
+.article{
+    background-color: #9ACD32;
+    grid-area: 2 / 2 / 3 / 3;
+    padding: 1em;
+}
+
+.ads{
+    background-color: #9ACD32;
+    grid-area: 3 / 2 / 4 / 3;
+    padding: 1em;
+}
+
+footer{
+    background-color: #9ACD32;
+    grid-area: 4 / 1 / 5 / 3;
+    padding: 1em;
+}
