@@ -8,17 +8,19 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-image: linear-gradient(135deg, mediumpurple, lightblue);
+
 }
 
 .wrapper {
     display: inline-grid;
     /* TODO: define five columns where the middle three columns are 400px and the outer columns fill the remaining space */
-    grid-template-columns: 1fr 400px 400px 400px 1fr;
+    grid-template-columns: max-content 400px 400px 400px max-content;
     /* TODO: add a gap of 1em around all grid items */
     grid-gap: 1em;
     /* no row properties are needed */
     /* TODO: the height of the wrapper should be 100 viewport height units */
     height:100vh;
+
 }
 
 ul {
@@ -79,6 +81,7 @@ header a:hover {
 nav ul {
     display: flex;
     width: 100%;
+    flex-direction: column;
 }
 
 a {
@@ -89,9 +92,6 @@ a {
     padding: 1em;
 }
 
-nav ul {
-    flex-direction: column;
-}
 
 
 nav a {
