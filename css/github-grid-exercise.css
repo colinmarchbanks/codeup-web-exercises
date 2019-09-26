@@ -1,0 +1,186 @@
+html{
+    box-sizing: border-box;
+
+}
+
+li{
+    list-style: none;
+}
+
+body{
+    margin: 0;
+
+
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: #23282E;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+
+nav ul li{
+    padding: 5px;
+    color: white;
+}
+
+nav ul li input{
+    background-color: gray;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    height: 2em;
+    width: 15em;
+}
+
+nav ul li input::placeholder{
+    color: black;
+    padding-left: .7em;
+}
+
+
+nav ul li i{
+    font-size: 1.2em;
+    color: white;
+}
+
+nav ul li:nth-of-type(7){
+    margin-left: auto;
+}
+
+.nav-icon{
+    font-size: 2em;
+    color: white;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 4fr 4fr 1fr;
+    grid-template-columns: 1fr 980px 1fr;
+}
+
+.directory{
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.directory ul{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+}
+
+.directory ul li:nth-of-type(2){
+    margin-left: auto;
+}
+
+.tabs{
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.tabs ul{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+}
+
+.tabs ul li{
+    padding-right: 1em;
+}
+
+.branch_master{
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.branch_master ul{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+}
+
+.branch_master ul li:nth-of-type(2){
+    margin-right: auto;
+}
+
+.commit_log{
+    grid-area: 4 / 2 / 5 / 3;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: repeat(7, 1fr);
+}
+
+#log_ul_1_li1{
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.log_ul_2{
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+.log_ul_3{
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.log_ul_4{
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+.log_ul_5{
+    grid-area: 5 / 1 / 6 / 2;
+}
+
+.log_ul_6{
+    grid-area: 6 / 1 / 7 / 2;
+}
+
+.log_ul_7{
+    grid-area: 7 / 1 / 8 / 2;
+}
+
+.log_ul_1{
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.file_info{
+    grid-area: 5 / 2 / 6 / 3;
+}
+
+footer{
+    grid-area: 6 / 2 / 7 / 3;
+    margin-bottom: 2em;
+}
+
+footer ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+}
+
+footer ul li{
+    padding-right: 1em;
+    font-size: .8em;
+}
+
+footer ul li:nth-of-type(7){
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.5em;
+}
