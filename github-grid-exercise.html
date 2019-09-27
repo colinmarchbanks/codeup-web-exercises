@@ -5,74 +5,85 @@
     <title>Github Grid Exercise</title>
     <link rel="stylesheet" href="css/github-grid-exercise.css">
     <script src="https://kit.fontawesome.com/ab118131a9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
         <ul>
-            <li class="nav-icon"><i class="fab fa-github"></i></li>
+            <li class="nav-icon"><a href=""><i class="fab fa-github"></i></a></li>
             <li><input type="text" placeholder="Search"></li>
-            <li>Pull Requests</li>
-            <li>Issues</li>
-            <li>Marketplace</li>
-            <li>Explore</li>
-            <li><i class="fas fa-bell"></i></li>
-            <li><i class="fas fa-plus"></i></li>
-            <li><i class="fas fa-user-circle"></i></li>
+            <li><a href="">Pull Requests</a></li>
+            <li><a href="">Issues</a></li>
+            <li><a href="">Marketplace</a></li>
+            <li><a href="">Explore</a></li>
+            <li><a href=""><i class="fas fa-bell"></i></a></li>
+            <li><a href=""><i class="fas fa-plus"></i></a></li>
+            <li><a href=""><i class="fas fa-user-circle"></i></a></li>
         </ul>
     </nav>
     <div class="wrapper">
         <div class = "directory">
             <ul>
-                <li>gocodeup/css-bonus-challenges</li>
-                <li><button>Watch</button></li>
-                <li><button>Star</button></li>
-                <li><button>Fork</button></li>
+                <li><i class="fas fa-book"></i><a href="">gocodeup</a> / <a href=""><h3>css-bonus-challenges</h3></a></li>
+                <li><button class="number_button"><i class="fas fa-eye"></i>Watch<span>4</span></button></li>
+                <li><button class="number_button"><i class="fas fa-star"></i>Star<span>7</span></button></li>
+                <li><button class="number_button"><i class="fas fa-code-branch"></i>Fork<span>6</span></button></li>
             </ul>
         </div>
         <div class = "tabs">
             <ul>
-                <li>Code</li>
-                <li>Issues</li>
-                <li>Pull Requests</li>
-                <li>Projects</li>
-                <li>Wiki</li>
-                <li>Security</li>
-                <li>Insights</li>
+                <li><a href="" class="gray_a"><i class="fas fa-code"></i>Code</a></li>
+                <li><a href="" class="gray_a"><i class="fas fa-exclamation-circle"></i>Issues</a></li>
+                <li><a href="" class="gray_a"><i class="fas fa-upload"></i>Pull Requests</a></li>
+                <li><a href="" class="gray_a"><i class="fas fa-chart-bar"></i>Projects</a></li>
+                <li><a href="" class="gray_a"><i class="fas fa-book-open"></i>Wiki</a></li>
+                <li><a href="" class="gray_a"><i class="fas fa-shield-alt"></i>Security</a></li>
+                <li><a href="" class="gray_a"><i class="fas fa-chart-line"></i>Insights</a></li>
             </ul>
         </div>
         <div class = "branch_master">
             <ul>
                 <li><button>Branch:master</button></li>
-                <li>css-bonus-challenges/1_simple/webpage-generic</li>
-                <li><button>Create new file</button></li>
-                <li><button>Upload files</button></li>
-                <li><button>Find file</button></li>
-                <li><button>History</button></li>
+                <li><a href=""><h3>css-bonus-challenges</h3></a> / <a href="">1_simple</a> / <h3>webpage-generic</h3></li>
+                <li><button id="branch_button_start" class="branch_button">Create new file</button></li>
+                <li><button class="branch_button">Upload files</button></li>
+                <li><button class="branch_button">Find file</button></li>
+                <li><button id="branch_button_end" class="branch_button">History</button></li>
             </ul>
         </div>
         <div class="commit_log">
-            <p id="log_1_1">jreich5 Renamed specs to readme</p>
+            <p id="log_1_1"><i class="fas fa-user"></i> jreich5 Renamed specs to readme</p>
             <p id="log_1_2">Last commit c2421ca on May 15, 2018</p>
-            <p id="log_2_1">..</p>
-            <p>readme.md</p>
+            <p id="log_2_1"><a href="">..</a></p>
+            <p class="file_name"><i class="far fa-file-alt"></i><a href="">readme.md</a></p>
             <p class="log_content">Renamed specs to readme</p>
             <p class="log_year">last year</p>
-            <p>webpage-generic-desktop.png</p>
+            <p class="file_name"><i class="far fa-file-alt"></i><a href="">webpage-generic-desktop.png</a></p>
             <p class="log_content">Simple UI examples</p>
             <p class="log_year">last year</p>
-            <p>webpage-generic-mobile.png</p>
+            <p class="file_name"><i class="far fa-file-alt"></i><a href="">webpage-generic-mobile.png</a></p>
             <p class="log_content">Simple UI examples</p>
             <p class="log_year">last year</p>
-            <p>webpage-generic-tablet.png/li>
+            <p class="file_name"><i class="far fa-file-alt"></i><a href="">webpage-generic-tablet.png</a></p>
             <p class="log_content">Simple UI examples</p>
             <p class="log_year">last year</p>
-            <p>webpage-generic.gif</p>
-            <p class="log_content">Simple UI examples</p>
-            <p class="log_year">last year</p>
+            <p class="last_row file_name"><i class="far fa-file-alt"></i><a href="">webpage-generic.gif</a></p>
+            <p class="last_row log_content">Simple UI examples</p>
+            <p class="last_row log_year">last year</p>
         </div>
         <div class="file_info">
-
+                <div class="header">readme.md</div>
+                <div class="body">
+                    <h2>Specs</h2>
+                    <hr>
+                    <ul>
+                        <li>font-family:Roberto, sans-serif;</li>
+                        <li>tablet width breakpoint: 992px and below</li>
+                        <li>mobile width breakpoint: 600px and below</li>
+                    </ul>
+                </div>
         </div>
+            <div></div>
         <footer>
             <ul>
                 <li>© 2019 GitHub, Inc.</li>
@@ -81,7 +92,7 @@
                 <li><a href="">Security</a></li>
                 <li><a href="">Status</a></li>
                 <li><a href="">Help</a></li>
-                <li><a href=""><i class="fab fa-github"></i></a></li>
+                <li><a id="footer_icon" href=""><i class="fab fa-github"></i></a></li>
                 <li><a href="">Contact GitHub</a></li>
                 <li><a href="">Pricing</a></li>
                 <li><a href="">API</a></li>
