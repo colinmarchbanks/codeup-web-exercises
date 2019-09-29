@@ -5,6 +5,7 @@
 body {
     text-align: center;
     font-family: Arial;
+    font-size: ;
 }
 
 h3{
@@ -138,6 +139,7 @@ h1.vision{
     position : sticky;
     top: 0;
     width: 100%;
+    z-index: 2;
 }
 
 #navbar a {
