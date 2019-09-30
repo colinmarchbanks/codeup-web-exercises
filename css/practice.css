@@ -29,5 +29,15 @@
 #red:hover{
     color: red;
 }
-
-
+/*For smaller desktops and Ipad pro*/
+@media screen and (max-width: 1024px){
+    .box {
+        background-color: yellow;
+    }
+}
+/*mobile devices*/
+@media screen and (max-width: 768px){
+    body{
+        background-color: mediumpurple;
+    }
+}
