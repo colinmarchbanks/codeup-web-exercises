@@ -46,11 +46,11 @@
             <a class="nav-link" href="#cheese" data-toggle="tab" id="cheese-tab" role="tab"><span class="badge badge-pill badge-secondary">2</span> Cheese and Sauce</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#toppings" data-toggle="tab" id="topping-tab" role="tab" aria-controls=""><span class="badge badge-pill badge-secondary">3</span> Toppings</a>
+            <a class="nav-link" href="#toppings" data-toggle="tab" id="topping-tab" role="tab"><span class="badge badge-pill badge-secondary">3</span> Toppings</a>
         </li>
     </ul>
     <div class="tab-content" id="nav-tabContent">
-    <div class="card tab-pane fade show active" id="crust" role="tabpanel" aria-labelledby="crust">
+    <div class="card tab-pane fade show active crust" id="crust" role="tabpanel">
         <h5 class="card-header bg-primary text-white">Choose Size and Crust</h5>
         <div class="card-body">
             <div class="card">
@@ -79,7 +79,7 @@
                 </div>
                     <div class="form-check p-2 border-top">
                         <input class="form-check-input ml-2" type="radio" name="crust-type" id="crust-type3" value="option3" checked>
-                        <label class="form-check-label pl-4 ml-1" for="crust-type1">
+                        <label class="form-check-label pl-4 ml-1" for="crust-type3">
                             Medium (12")
                         </label>
                     </div>
@@ -92,21 +92,23 @@
             </div>
         </div>
         <div class="card-footer text-right">
-            <a href="#cheese" class="btn btn-primary " data-toggle="tab" data-tab-destination="cheese">Next step</a>
+            <a class="btn btn-primary text-white" id="nexttab">Next step</a>
         </div>
     </div>
-    <div class="card tab-pane fade" id="cheese" role="tabpanel" aria-labelledby="cheese">
+    <div class="card tab-pane fade cheese target-tab-link" id="cheese" role="tabpanel" aria-labelledby="cheese">
         <h5 class="card-header bg-primary text-white">Choose Cheese and Sauce</h5>
         <div class="card-body">
             <div class="card">
                 <h5 class="card-header">Cheese</h5>
                 <div class="card-body">
-                    <select class="form-control">
-                        <option>Light</option>
-                        <option>Normal</option>
-                        <option>Extra</option>
-                        <option>Double</option>
-                    </select>
+                    <label>
+                        <select class="form-control">
+                            <option>Light</option>
+                            <option>Normal</option>
+                            <option>Extra</option>
+                            <option>Double</option>
+                        </select>
+                    </label>
                 </div>
             </div>
             <br>
@@ -114,24 +116,28 @@
                 <h5 class="card-header">Sauce</h5>
                     <div class="card-body border-bottom">
                         <p class="card-title">What type?</p>
-                        <select class="form-control">
-                            <option>Tomato Sauce</option>
-                            <option>Marinara Sauce</option>
-                            <option>Alfredo Sauce</option>
-                            <option>BBQ Sauce</option>
-                        </select>
+                        <label>
+                            <select class="form-control">
+                                <option>Tomato Sauce</option>
+                                <option>Marinara Sauce</option>
+                                <option>Alfredo Sauce</option>
+                                <option>BBQ Sauce</option>
+                            </select>
+                        </label>
                     </div>
                     <div class="card-body">
                         <p class="card-title">How much?</p>
-                        <select class="form-control">
-                            <option>Light</option>
-                            <option>Normal</option>
-                            <option>Extra</option>
-                        </select>
+                        <label>
+                            <select class="form-control">
+                                <option>Light</option>
+                                <option>Normal</option>
+                                <option>Extra</option>
+                            </select>
+                        </label>
                     </div>
             </div>
         </div>
-        <div class="card-footer text-muted text-right">
+        <div class="card-footer text-right">
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-primary">Previous Step</button>
                 <button type="button" class="btn btn-primary border-left">Next Step</button>
@@ -197,7 +203,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer text-muted text-right">
+        <div class="card-footer text-right">
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-primary">Previous Step</button>
                 <button type="button" class="btn btn-primary border-left">Checkout<i class="fas fa-shopping-cart text-white"></i></button>
@@ -209,5 +215,12 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="js/pizza-order.js"></script>
+<script>
+    $('#nexttab').on('click', function() {
+    $tabs.filter('.active').next('li').find('a[data-toggle="tab"]').tab('show');
+});
+</script>
 </body>
 </html>
+
