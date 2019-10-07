@@ -66,6 +66,16 @@
        function returnArgument(x){
            return typeof x;
        }
+
+       function positiveEven(x){
+           var result = false;
+           if(x % 2 === 0){
+               if(x > 0){
+                   result = true;
+               }
+           }
+           return result;
+       }
         var name = "Colin";
 
         console.log(sumOfTwo(2,2));
@@ -77,6 +87,10 @@
         console.log(areaOfCircle(20));
         console.log(perimeterOfQuad(1,2,3,4));
         console.log(returnArgument(name));
+        console.log(positiveEven(12));
+        console.log(positiveEven(-1));
+        console.log(positiveEven(3));
+        console.log(positiveEven(-4));
     </script>
 </body>
 </html>
