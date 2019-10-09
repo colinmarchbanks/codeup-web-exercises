@@ -80,6 +80,19 @@ function enteredNumGreater5(){
     // }
 }
 
+function helloThere(x = "stranger"){
+    var confName = confirm("Would you like to enter a name?");
+    if(confName === true){
+        let x = prompt("Please enter a name");
+        alert("Hello there, " + x);
+        return "Hello there, " + x;
+    }
+    else{
+        alert("Hello there, " + x);
+        return "Hello there, " + x;
+    }
+}
+
 const name = "Colin";
 
 console.log(returnHi());
@@ -98,3 +111,4 @@ console.log(positiveEven(-1));
 console.log(positiveEven(3));
 console.log(positiveEven(-4));
 console.log(enteredNumGreater5());
+console.log(helloThere());
