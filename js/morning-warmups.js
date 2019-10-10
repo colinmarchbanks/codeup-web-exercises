@@ -1,3 +1,6 @@
+(function () {
+
+
 
 function sumOfTwo(x,y)
 {
@@ -93,6 +96,10 @@ function helloThere(x = "stranger"){
     }
 }
 
+function arrayLength(x){
+    return x.length;
+}
+
 const name = "Colin";
 
 console.log(returnHi());
@@ -112,3 +119,5 @@ console.log(positiveEven(3));
 console.log(positiveEven(-4));
 console.log(enteredNumGreater5());
 console.log(helloThere());
+console.log(arrayLength([1, 2, 3, 4, 5, 6, 7, 8]));
+})();
