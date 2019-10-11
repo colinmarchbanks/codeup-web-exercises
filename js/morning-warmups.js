@@ -101,7 +101,7 @@ function arrayLength(x){
 }
 
 function getQuotient(x,y){
-    if(x !== 'number' || y !== 'number') {
+    if(typeof x !== 'number' || typeof y !== 'number') {
         return false;
     }
     return x/y;
@@ -130,4 +130,5 @@ console.log(arrayLength([1, 2, 3, 4, 5, 6, 7, 8]));
 console.log(getQuotient(10, 2));
 console.log(getQuotient(5));
 console.log(getQuotient());
+    console.log(getQuotient('Beavis', 'butthead'));
 })();
