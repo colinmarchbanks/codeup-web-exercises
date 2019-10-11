@@ -101,7 +101,7 @@ function arrayLength(x){
 }
 
 function getQuotient(x,y){
-    if(x === undefined || y === undefined) {
+    if(x !== 'number' || y !== 'number') {
         return false;
     }
     return x/y;
