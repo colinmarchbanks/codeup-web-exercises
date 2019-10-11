@@ -100,6 +100,13 @@ function arrayLength(x){
     return x.length;
 }
 
+function getQuotient(x,y){
+    if(x === undefined || y === undefined) {
+        return false;
+    }
+    return x/y;
+}
+
 const name = "Colin";
 
 console.log(returnHi());
@@ -120,4 +127,7 @@ console.log(positiveEven(-4));
 console.log(enteredNumGreater5());
 console.log(helloThere());
 console.log(arrayLength([1, 2, 3, 4, 5, 6, 7, 8]));
+console.log(getQuotient(10, 2));
+console.log(getQuotient(5));
+console.log(getQuotient());
 })();
