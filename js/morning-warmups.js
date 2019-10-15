@@ -107,6 +107,15 @@ function getQuotient(x,y){
     return x/y;
 }
 
+function displayFiveElements(x){
+    console.log(x[0]);
+    console.log(x[1]);
+    console.log(x[2]);
+    console.log(x[3]);
+    console.log(x[4]);
+    return x;
+}
+
 const name = "Colin";
 
 console.log(returnHi());
@@ -131,4 +140,5 @@ console.log(getQuotient(10, 2));
 console.log(getQuotient(5));
 console.log(getQuotient());
     console.log(getQuotient('Beavis', 'butthead'));
+    displayFiveElements([1,2,3,4,5]);
 })();
