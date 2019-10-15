@@ -1,4 +1,4 @@
-(function() {
+// (function() {
     "use strict";
 
     /**
@@ -163,28 +163,29 @@
 
     function createBook(title,authorName){
         var authorArr = authorName.split(" ");
-        books += {
-            title: title,
+         books.push({
+             title: title,
             author:{
                 firstName: authorArr[0],
                 lastName: authorArr[1]
             }
-        };
+        });
     }
 
     createBook("Coding with JavaScript For Dummies", "Chris Minnick");
 
     function showBookInfo(bookArr){
-        books.forEach(function (book, bookNum) {
+        bookArr.forEach(function (book, bookNum) {
             console.log("---------------");
             console.log("Book #" + (bookNum + 1));
             console.log("Title: " + book.title);
             console.log("Author: " + book.author.firstName + " " + book.author.lastName);
-
         });
     }
 
-    s
+    showBookInfo(books);
 
+    createBook("C-dog's Journey, a Memo on being awesome", "Colin Marchbanks");
 
-})();
+    showBookInfo(books);
+// })();
