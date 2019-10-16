@@ -1,9 +1,8 @@
 "use strict";
 
-let x = 2;
-while(x < 65537){
-    console.log(x);
-    x *= 2;
+let x = 1;
+while(x < 65536){
+    console.log(x *= 2);
 }
 
 var allCones = Math.floor(Math.random() * 50) + 50;
