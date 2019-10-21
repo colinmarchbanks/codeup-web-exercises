@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Boy</title>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+
+
+
+
+<div id='map' style='width: 500px; height:400px;'></div>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+    var markers = [];
+    var accessToken = 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg';
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9'
+    });
+
+    geocode("San Antonio International Airport", 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg').then(function(result) {
+        console.log(result);
+        map.setCenter(result);
+        map.setZoom(10);
+    });
+
+
+    var flatsInfo = {
+        address: "2926 N St Mary's St St, San Antonio, TX 78212",
+        popupHTML: "<h3 style='text-align: center'><a href='https://www.tycoonflats.net/'>This is Tycoon Flats!</a></h3><p>This place has great burgers and atmosphere!</p>"
+    };
+
+    var chestersInfo = {
+        address: "9980 I-10, San Antonio, TX 78230",
+        popupHTML: "<h3 style='text-align: center'><a href='http://www.chestershamburgers.com/menu.html'>This is Chesters!</a></h3><p>This place has great burgers, and a cool class atmosphere reminiscing a class country burger shop</p>"
+    };
+
+    var chamaInfo = {
+        address: "18318 Sonterra Pl, San Antonio, TX 78258",
+        popupHTML: "<h3>This is Chama Gaúcha!</h3>"
+    };
+
+    markers.push(flatsInfo);
+    markers.push(chestersInfo);
+    markers.push(chamaInfo);
+
+    function placeMarkerAndPopup(markerArr, token, map) {
+        markerArr.forEach(function (info) {
+            geocode(info.address, token).then(function(coordinates) {
+                var popup = new mapboxgl.Popup()
+                    .setHTML(info.popupHTML);
+                var marker = new mapboxgl.Marker()
+                    .setLngLat(coordinates)
+                    .addTo(map)
+                    .setPopup(popup);
+            });
+        })
+
+    }
+
+    placeMarkerAndPopup(markers, accessToken, map);
+
+</script>
+</body>
+</html>
