@@ -116,29 +116,44 @@ function displayFiveElements(x){
     return x;
 }
 
+function lengthOver8(x){
+    return typeof x === "string" && x.length >= 8;
+}
+
+function countUpTo(x){
+    for (let i = 1; i <= x; i++){
+        console.log(i);
+    }
+    return "Counting is done";
+}
+
 const name = "Colin";
 
-console.log(returnHi());
-console.log(helloName(name));
-console.log(sumOfTwo(2,2));
-console.log(areaOfTriangle(3,4,5));
-console.log(returnFirst(name));
-console.log(areaOfEquilateralTriangle(5));
-console.log(threeStrings("colin", " is"," king"));
-console.log(allUpper(name));
-console.log(areaOfCircle(20));
-console.log(perimeterOfQuad(1,2,3,4));
-console.log(returnArgument(name));
-console.log(positiveEven(12));
-console.log(positiveEven(-1));
-console.log(positiveEven(3));
-console.log(positiveEven(-4));
-console.log(enteredNumGreater5());
-console.log(helloThere());
-console.log(arrayLength([1, 2, 3, 4, 5, 6, 7, 8]));
-console.log(getQuotient(10, 2));
-console.log(getQuotient(5));
-console.log(getQuotient());
-    console.log(getQuotient('Beavis', 'butthead'));
-    displayFiveElements([1,2,3,4,5]);
+// console.log(returnHi());
+// console.log(helloName(name));
+// console.log(sumOfTwo(2,2));
+// console.log(areaOfTriangle(3,4,5));
+// console.log(returnFirst(name));
+// console.log(areaOfEquilateralTriangle(5));
+// console.log(threeStrings("colin", " is"," king"));
+// console.log(allUpper(name));
+// console.log(areaOfCircle(20));
+// console.log(perimeterOfQuad(1,2,3,4));
+// console.log(returnArgument(name));
+// console.log(positiveEven(12));
+// console.log(positiveEven(-1));
+// console.log(positiveEven(3));
+// console.log(positiveEven(-4));
+// console.log(enteredNumGreater5());
+// console.log(helloThere());
+// console.log(arrayLength([1, 2, 3, 4, 5, 6, 7, 8]));
+// console.log(getQuotient(10, 2));
+// console.log(getQuotient(5));
+// console.log(getQuotient());
+//     console.log(getQuotient('Beavis', 'butthead'));
+//     displayFiveElements([1,2,3,4,5]);
+//     console.log(lengthOver8("abcdefgh"));
+//     console.log(lengthOver8("abcdefghi"));
+//     console.log(lengthOver8("abcdefg"));
+    console.log(countUpTo(50));
 })();
