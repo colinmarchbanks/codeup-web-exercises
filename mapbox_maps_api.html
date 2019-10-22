@@ -12,9 +12,21 @@
 
 
 
-<div id='map' style='width: 500px; height:400px;'></div>
+<div id='map' style='width: 600px; height:400px; float: left'></div>
+<select id="zoomSelect">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+</select>
+<button onclick="changeZoom()">Change Zoom</button>
+<br>
+<textarea name="geoAddress" id="geoAddress" cols="30" rows="2" placeholder="Please enter a new address"></textarea>
+<button onclick="changeFocus()">Change Focus</button>
+<button onclick="removeMarkers()">Remove Markers</button>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script>
+    var markerInfo = [];
     var markers = [];
     var accessToken = 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg';
 
@@ -27,8 +39,31 @@
     geocode("San Antonio International Airport", 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg').then(function(result) {
         console.log(result);
         map.setCenter(result);
-        map.setZoom(10);
+        map.setZoom(document.getElementById("zoomSelect").value);
     });
+
+    function changeZoom(){
+        geocode("San Antonio International Airport", 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg').then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(document.getElementById("zoomSelect").value);
+        });
+    }
+
+    function changeFocus(){
+        geocode(document.getElementById("geoAddress").value,accessToken).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(document.getElementById("zoomSelect").value);
+            var popup = new mapboxgl.Popup()
+                .setHTML(document.getElementById("geoAddress").value);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(result)
+                .addTo(map)
+                .setPopup(popup);
+            markers.push(marker);
+        });
+    }
 
 
     var flatsInfo = {
@@ -43,12 +78,12 @@
 
     var chamaInfo = {
         address: "18318 Sonterra Pl, San Antonio, TX 78258",
-        popupHTML: "<h3>This is Chama Gaúcha!</h3>"
+        popupHTML: "<h3 style ='text-align: center'><a href='http://chamagaucha.com/'>This is Chama Gaucha!</a></h3><p>This is a great Brazilian Steakhouse that has over 15 different cuts of fine meats and has a fantastic salad bar (But who comes to a steakhouse for the salad?)</p>"
     };
 
-    markers.push(flatsInfo);
-    markers.push(chestersInfo);
-    markers.push(chamaInfo);
+    markerInfo.push(flatsInfo);
+    markerInfo.push(chestersInfo);
+    markerInfo.push(chamaInfo);
 
     function placeMarkerAndPopup(markerArr, token, map) {
         markerArr.forEach(function (info) {
@@ -59,12 +94,21 @@
                     .setLngLat(coordinates)
                     .addTo(map)
                     .setPopup(popup);
+                markers.push(marker);
             });
         })
 
     }
 
-    placeMarkerAndPopup(markers, accessToken, map);
+    placeMarkerAndPopup(markerInfo, accessToken, map);
+
+    function removeMarkers(){
+        for(let x = 0; x<= markers.length;x++){
+            markers[x].remove();
+        }
+    }
+
+
 
 </script>
 </body>
