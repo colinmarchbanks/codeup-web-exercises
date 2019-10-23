@@ -5,6 +5,38 @@
     <title>Mapbox Boy</title>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        .animated {
+            -webkit-animation-duration: 2.5s;
+            animation-duration: 2.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+        }
+        @-webkit-keyframes bounce {
+            0%, 20%, 40%, 60%, 80%, 100% {-webkit-transform: translateY(0);}
+            50% {-webkit-transform: translateY(-5px);}
+        }
+        @keyframes bounce {
+            0%, 20%, 40%, 60%, 80%, 100% {transform: translateY(0);}
+            50% {transform: translateY(-5px);}
+        }
+        .bounce {
+            -webkit-animation-name: bounce;
+            animation-name: bounce;
+        }
+        .marker{
+            background-image: url('img/cat.png');
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,23 +44,64 @@
 
 
 
-<div id='map' style='width: 500px; height:400px;'></div>
+<div id='map' style='width: 600px; height:400px; float: left'></div>
+<select id="zoomSelect">
+    <option value="5">5</option>
+    <option value="10" selected="selected">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+</select>
+<button onclick="changeZoom()">Change Zoom</button>
+<br>
+<textarea name="geoAddress" id="geoAddress" cols="30" rows="2" placeholder="Please enter a new address"></textarea>
+<br>
+<button onclick="changeFocus()">Change Focus</button>
+<button onclick="removeMarkers()">Remove Markers</button>
+
+<script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script>
-    var markers = [];
-    var accessToken = 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg';
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg';
+    var markerInfo = [];
+    var markers = [];
+    var accessToken = mapboxToken;
+
+    mapboxgl.accessToken = mapboxToken;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9'
     });
 
-    geocode("San Antonio International Airport", 'pk.eyJ1IjoiY29saW5tYXJjaCIsImEiOiJjazF1dTQ4OTgwNXlwM29zN24xM2Rib3ZiIn0.X4PmRFbW0Wpddh_tO6nRyg').then(function(result) {
+    geocode("San Antonio International Airport", mapboxToken).then(function(result) {
         console.log(result);
         map.setCenter(result);
-        map.setZoom(10);
+        map.setZoom(document.getElementById("zoomSelect").value);
     });
+
+    function changeZoom(){
+        geocode("San Antonio International Airport", mapboxToken).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(document.getElementById("zoomSelect").value);
+        });
+    }
+
+    function changeFocus(){
+        geocode(document.getElementById("geoAddress").value,accessToken).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(document.getElementById("zoomSelect").value);
+            var popup = new mapboxgl.Popup()
+                .setHTML(document.getElementById("geoAddress").value);
+            var el = document.createElement('div');
+            el.className = "marker";
+            var marker = new mapboxgl.Marker(el)
+                .setLngLat(result)
+                .addTo(map)
+                .setPopup(popup);
+            markers.push(marker);
+        });
+    }
 
 
     var flatsInfo = {
@@ -43,29 +116,41 @@
 
     var chamaInfo = {
         address: "18318 Sonterra Pl, San Antonio, TX 78258",
-        popupHTML: "<h3>This is Chama Gaúcha!</h3>"
+        popupHTML: "<h3 style ='text-align: center'><a href='http://chamagaucha.com/'>This is Chama Gaucha!</a></h3><p>This is a great Brazilian Steakhouse that has over 15 different cuts of fine meats and has a fantastic salad bar (But who comes to a steakhouse for the salad?)</p>"
     };
 
-    markers.push(flatsInfo);
-    markers.push(chestersInfo);
-    markers.push(chamaInfo);
+    markerInfo.push(flatsInfo);
+    markerInfo.push(chestersInfo);
+    markerInfo.push(chamaInfo);
+
+
 
     function placeMarkerAndPopup(markerArr, token, map) {
         markerArr.forEach(function (info) {
             geocode(info.address, token).then(function(coordinates) {
                 var popup = new mapboxgl.Popup()
                     .setHTML(info.popupHTML);
-                var marker = new mapboxgl.Marker()
+                var el = document.createElement('div');
+                el.className = "marker";
+                var marker = new mapboxgl.Marker(el)
+
                     .setLngLat(coordinates)
                     .addTo(map)
                     .setPopup(popup);
+                markers.push(marker);
             });
         })
 
     }
 
-    placeMarkerAndPopup(markers, accessToken, map);
 
+    placeMarkerAndPopup(markerInfo, accessToken, map);
+
+    function removeMarkers(){
+        for(let x = 0; x<= markers.length;x++){
+            markers[x].remove();
+        }
+    }
 </script>
 </body>
 </html>
