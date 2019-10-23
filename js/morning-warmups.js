@@ -127,6 +127,15 @@ function countUpTo(x){
     return "Counting is done";
 }
 
+function createPersonObject(name,age){
+    var personObject = {
+        name : name,
+        age : age
+    };
+
+    return personObject;
+}
+
 const name = "Colin";
 
 // console.log(returnHi());
@@ -156,4 +165,5 @@ const name = "Colin";
 //     console.log(lengthOver8("abcdefghi"));
 //     console.log(lengthOver8("abcdefg"));
     console.log(countUpTo(50));
+    console.log(createPersonObject("Colin,24"));
 })();
