@@ -100,24 +100,35 @@ function arrayLength(x){
     return x.length;
 }
 
+function createPersonObject(name,age){
+    return {
+        name: name,
+        age: age
+    };
+}
+
+var cdog = createPersonObject("Colin",24);
+
 const name = "Colin";
 
-console.log(returnHi());
-console.log(helloName(name));
-console.log(sumOfTwo(2,2));
-console.log(areaOfTriangle(3,4,5));
-console.log(returnFirst(name));
-console.log(areaOfEquilateralTriangle(5));
-console.log(threeStrings("colin", " is"," king"));
-console.log(allUpper(name));
-console.log(areaOfCircle(20));
-console.log(perimeterOfQuad(1,2,3,4));
-console.log(returnArgument(name));
-console.log(positiveEven(12));
-console.log(positiveEven(-1));
-console.log(positiveEven(3));
-console.log(positiveEven(-4));
-console.log(enteredNumGreater5());
-console.log(helloThere());
-console.log(arrayLength([1, 2, 3, 4, 5, 6, 7, 8]));
+// console.log(returnHi());
+// console.log(helloName(name));
+// console.log(sumOfTwo(2,2));
+// console.log(areaOfTriangle(3,4,5));
+// console.log(returnFirst(name));
+// console.log(areaOfEquilateralTriangle(5));
+// console.log(threeStrings("colin", " is"," king"));
+// console.log(allUpper(name));
+// console.log(areaOfCircle(20));
+// console.log(perimeterOfQuad(1,2,3,4));
+// console.log(returnArgument(name));
+// console.log(positiveEven(12));
+// console.log(positiveEven(-1));
+// console.log(positiveEven(3));
+// console.log(positiveEven(-4));
+// console.log(enteredNumGreater5());
+// console.log(helloThere());
+// console.log(arrayLength([1, 2, 3, 4, 5, 6, 7, 8]));
+    console.log(createPersonObject("Colin", 24));
+    console.log(cdog);
 })();
