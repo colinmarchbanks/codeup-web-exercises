@@ -156,6 +156,41 @@ function returnNum5fromString(stringfive){
 
 const name = "Colin";
 
+    var shoppingCarts = [
+        {
+            apples: 8,
+            bananas: 2,
+            oranges: 4,
+            grapes: 24
+        }, {
+            apples: 3,
+            bananas: 6,
+            oranges: 8,
+            grapes: 12
+        } , {
+            apples: 0,
+            bananas: 12,
+            oranges: 0,
+            grapes: 0
+        } , {
+            apples: 4,
+            bananas: 0,
+            oranges: 12,
+            grapes: 10
+        }
+    ];
+
+    function mostOranges(x){
+        var result = {
+            oranges : 0
+        };
+        for(let i = 0; i< x.length;i++){
+            if(result.oranges < x[i].oranges)
+                result = x[i];
+        }
+        return result;
+    }
+
 // console.log(returnHi());
 // console.log(helloName(name));
 // console.log(sumOfTwo(2,2));
@@ -187,8 +222,9 @@ const name = "Colin";
 //     fizzBuzz();
 //     console.log(returnNum5fromString("five"));
 //     console.log(returnNum5fromString(5));
-    console.log(10 % 3);
-    var hidden = 50;
+//     console.log(10 % 3);
+//     var hidden = 50;
+    console.log(mostOranges(shoppingCarts));
 })();
 var array = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
 
