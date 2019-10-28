@@ -191,6 +191,7 @@ const name = "Colin";
         return result;
     }
 
+
 // console.log(returnHi());
 // console.log(helloName(name));
 // console.log(sumOfTwo(2,2));
@@ -224,7 +225,8 @@ const name = "Colin";
 //     console.log(returnNum5fromString(5));
 //     console.log(10 % 3);
 //     var hidden = 50;
-    console.log(mostOranges(shoppingCarts));
+//     console.log(mostOranges(shoppingCarts));
+    console.log(capitalizeAllNames(['ron weasley', 'harry potter', 'hermione granger']));
 })();
 var array = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
 
