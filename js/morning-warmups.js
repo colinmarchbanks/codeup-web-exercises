@@ -191,6 +191,43 @@ const name = "Colin";
         return result;
     }
 
+    var students = [
+        {
+            name: "Mary",
+            grade: 10,
+            gpa: 3.7,
+            isRegistered: true
+        },
+        {
+            name: "Tim",
+            grade: 12,
+            gpa: 3.2,
+            isRegistered: false
+        },
+        {
+            name: "Ellie",
+            grade: 9,
+            gpa: 4.0,
+            isRegistered: false
+        },
+        {
+            name: "Alex",
+            grade: 10,
+            gpa: 3.9,
+            isRegistered: true
+        }
+    ]
+
+    function notRegistered(arr){
+        var bucket = [];
+        arr.forEach(function (student) {
+            if(!student.isRegistered){
+                bucket.push(student);
+            }
+        });
+        return bucket;
+    }
+
 
 // console.log(returnHi());
 // console.log(helloName(name));
@@ -226,7 +263,8 @@ const name = "Colin";
 //     console.log(10 % 3);
 //     var hidden = 50;
 //     console.log(mostOranges(shoppingCarts));
-    console.log(capitalizeAllNames(['ron weasley', 'harry potter', 'hermione granger']));
+//     console.log(capitalizeAllNames(['ron weasley', 'harry potter', 'hermione granger']));
+    console.log(notRegistered(students));
 })();
 var array = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
 
