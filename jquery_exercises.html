@@ -20,13 +20,21 @@
 <script>
     "use strict";
 
-    $('li').css('font-size','20px');
-    $('h1').css('background-color','yellow');
-    $('p').css('background-color','pink');
-    $('li').css('background-color','lightblue');
-    alert($('h1').html());
+    $('li').hover( function (){
+        let ran = (Math.random()+1) * Math.floor(25);
+        $(this).css({'font-size':ran,'color':'red'});},
+        function () {
+            $(this).css('color','black')
+        });
+    $('h1').click( function (){$(this).css('background-color','yellow')});
+    $('p').dblclick( function () {
+        var font = 18;
+        $(this).css('font-size',font+'px');
+    });
+    // $('li').css('background-color','lightblue');
+    // alert($('h1').html());
 
-    $('h1,li,p').css('background-color','cyan');
+    // $('h1,li,p').css('background-color','cyan');
 </script>
 </body>
 </html>
