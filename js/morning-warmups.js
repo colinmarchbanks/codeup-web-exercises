@@ -229,6 +229,46 @@ const name = "Colin";
     }
 
 
+    var hamsters = [
+        {
+            name: "Hamtaro",
+            heightInMM: 86,
+            fur: ['orange', 'white'],
+            gender: "male",
+            dateOfBirth: "August 6"
+        } , {
+            name: "Bijou",
+            heightInMM: 75,
+            fur: ['white'],
+            gender: "female",
+            dateOfBirth: "July 10"
+        } , {
+            name: "Oxnard",
+            heightInMM: 100,
+            fur: ['grey', 'white'],
+            gender: "male",
+            dateOfBirth: "May 3"
+        } , {
+            name: "Boss",
+            heightInMM: 120,
+            fur: ['brown', 'white'],
+            gender: "male",
+            dateOfBirth: "Spetember 21"
+        } , {
+            name: "Snoozer",
+            heightInMM: 85,
+            fur: ['brown', 'white', "pink"],
+            gender: "male",
+            dateOfBirth: "January 14"
+        }
+    ];
+
+    function shortHamsterHeight(array){
+        array.sort((a, b) => (a.heightInMM > b.heightInMM) ? 1 : -1);
+        return array;
+    }
+
+
 // console.log(returnHi());
 // console.log(helloName(name));
 // console.log(sumOfTwo(2,2));
@@ -264,7 +304,8 @@ const name = "Colin";
 //     var hidden = 50;
 //     console.log(mostOranges(shoppingCarts));
 //     console.log(capitalizeAllNames(['ron weasley', 'harry potter', 'hermione granger']));
-    console.log(notRegistered(students));
+//     console.log(notRegistered(students));
+    console.log(shortHamsterHeight(hamsters));
 })();
 var array = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
 
