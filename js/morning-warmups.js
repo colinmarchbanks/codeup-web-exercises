@@ -217,55 +217,71 @@ const name = "Colin";
             isRegistered: true
         }
     ]
+    //
+    // function notRegistered(arr){
+    //     var bucket = [];
+    //     arr.forEach(function (student) {
+    //         if(!student.isRegistered){
+    //             bucket.push(student);
+    //         }
+    //     });
+    //     return bucket;
+    // }
+    //
+    //
+    // var hamsters = [
+    //     {
+    //         name: "Hamtaro",
+    //         heightInMM: 86,
+    //         fur: ['orange', 'white'],
+    //         gender: "male",
+    //         dateOfBirth: "August 6"
+    //     } , {
+    //         name: "Bijou",
+    //         heightInMM: 75,
+    //         fur: ['white'],
+    //         gender: "female",
+    //         dateOfBirth: "July 10"
+    //     } , {
+    //         name: "Oxnard",
+    //         heightInMM: 100,
+    //         fur: ['grey', 'white'],
+    //         gender: "male",
+    //         dateOfBirth: "May 3"
+    //     } , {
+    //         name: "Boss",
+    //         heightInMM: 120,
+    //         fur: ['brown', 'white'],
+    //         gender: "male",
+    //         dateOfBirth: "Spetember 21"
+    //     } , {
+    //         name: "Snoozer",
+    //         heightInMM: 85,
+    //         fur: ['brown', 'white', "pink"],
+    //         gender: "male",
+    //         dateOfBirth: "January 14"
+    //     }
+    // ];
+    //
+    // function sortHamsterHeight(array){
+    //     array.sort((a, b) => (a.heightInMM > b.heightInMM) ? 1 : -1);
+    //     return array;
+    // }
 
-    function notRegistered(arr){
-        var bucket = [];
-        arr.forEach(function (student) {
-            if(!student.isRegistered){
-                bucket.push(student);
-            }
-        });
-        return bucket;
-    }
-
-
-    var hamsters = [
-        {
-            name: "Hamtaro",
-            heightInMM: 86,
-            fur: ['orange', 'white'],
-            gender: "male",
-            dateOfBirth: "August 6"
-        } , {
-            name: "Bijou",
-            heightInMM: 75,
-            fur: ['white'],
-            gender: "female",
-            dateOfBirth: "July 10"
-        } , {
-            name: "Oxnard",
-            heightInMM: 100,
-            fur: ['grey', 'white'],
-            gender: "male",
-            dateOfBirth: "May 3"
-        } , {
-            name: "Boss",
-            heightInMM: 120,
-            fur: ['brown', 'white'],
-            gender: "male",
-            dateOfBirth: "Spetember 21"
-        } , {
-            name: "Snoozer",
-            heightInMM: 85,
-            fur: ['brown', 'white', "pink"],
-            gender: "male",
-            dateOfBirth: "January 14"
+    function spellOutNumber(num){
+        switch (num){
+            case 1: return "one";
+            case 2: return "two";
+            case 3: return "three";
+            case 4: return "four";
+            case 5: return "five";
+            case 6: return "six";
+            case 7: return "seven";
+            case 8: return "eight";
+            case 9: return "nine";
+            case 10: return "ten";
         }
-    ];
 
-    function shortHamsterHeight(array){
-        array.sort((a, b) => (a.heightInMM > b.heightInMM) ? 1 : -1);
-        return array;
     }
 
 
@@ -305,7 +321,8 @@ const name = "Colin";
 //     console.log(mostOranges(shoppingCarts));
 //     console.log(capitalizeAllNames(['ron weasley', 'harry potter', 'hermione granger']));
 //     console.log(notRegistered(students));
-    console.log(shortHamsterHeight(hamsters));
+//     console.log(sortHamsterHeight(hamsters));
+    console.log(spellOutNumber(5));
 })();
 var array = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
 

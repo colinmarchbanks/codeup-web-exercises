@@ -16,6 +16,11 @@
     </style>
 </head>
 <body>
+<h2 style="position: sticky; display: none" id="register">Would you like to register to the page?</h2>
+<div id="newsletter">
+    <h1>Would you like to sign up for a news letter?</h1>
+    <span id="hideButton">X</span>
+</div>
 
 <dl>
     <dt>Who is the director of the National Park Service?</dt>
@@ -54,7 +59,7 @@
     <dd class="invisible">FY 2017 Enacted: $2.932 billion</dd>
 
     <h3>Yellowstone National Park</h3>
-    <ul>
+    <ul style="display: none">
         <li>First National Park</li>
         <li>Home of Mt. St. Helen</li>
         <li>Gets it name from the Yellowstone River, that spans across most of the park</li>
@@ -62,7 +67,7 @@
     </ul>
 
     <h3>Big Bend National Park</h3>
-    <ul>
+    <ul style="display: none">
         <li>Bend Bend has 801,163 acres and is the 15th largest National Park in the entire U.S.</li>
         <li>There are Archaeological sites in Big Bend that date back over 10,000 years</li>
         <li>There are hot springs in Big Bend that can get up to 105 degrees Fahrenheit</li>
@@ -70,7 +75,7 @@
     </ul>
 
     <h3>Wrangell - St. Elias</h3>
-    <ul>
+    <ul style="display: none">
         <li>This is America's Largest State park, at 13 millions acres.</li>
         <li>Mt. Wrangell is an active volcano</li>
         <li>The park was in 1980</li>
@@ -99,7 +104,7 @@
 </div>
 
 <script src="js/jquery-2.2.4.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script>
@@ -108,7 +113,11 @@
     var sad = "img/sad-face.png";
     var neutral = "img/neutral-face.png";
 
+
+
     $(document).ready(function() {
+
+
 
         $('#showDetails').click(function(event) {
             event.preventDefault();
@@ -131,7 +140,11 @@
             event.preventDefault();
             $(this).next().children().each(function () {
                 $(this).css('font-weight','bold');
+
             });
+            $(this).next().each(function () {
+                $(this).toggle();
+            })
         });
 
         $('li').click(function(event) {
@@ -141,9 +154,15 @@
             });
         });
 
+        $('#hideButton').click(function (event) {
+            event.preventDefault();
+            $('#newsletter').hide();
 
+        });
 
     });
+
+    $('#register').delay(8000).fadeIn('slow');
 
 </script>
 </body>
