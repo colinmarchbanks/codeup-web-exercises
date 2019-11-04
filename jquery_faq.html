@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-<h2 style="position: sticky; display: none" id="register">Would you like to register to the page?</h2>
+<h2 style="display: none" id="register">Would you like to register to the page?</h2>
 <div id="newsletter">
     <h1>Would you like to sign up for a news letter?</h1>
     <span id="hideButton">X</span>
@@ -162,7 +162,7 @@
 
     });
 
-    $('#register').delay(8000).fadeIn('slow');
+    $('#register').delay(8000).fadeIn('slow').css({"position": "sticky", "top":"50px","text-align":"center","background-color":'white',"z-index":"2"});
 
 </script>
 </body>
