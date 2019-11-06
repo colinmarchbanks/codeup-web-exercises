@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+</head>
+<body>
+<div class="jumbotron py-2">
+    <h1 class="display-4">Weather Map</h1>
+    <p class="lead">This Weather Map can be used to get detailed weather information about any area on the planet.</p>
+</div>
+
+<div class="jumbotron jumbotron-fluid my-2 py-0">
+    <div class="container">
+        <h1 class="display-4">Three Day Forecast</h1>
+    </div>
+</div>
+<div class = "container d-flex justify-content-between" id="cardArea">
+
+</div>
+
+<i class="wi wi-day-sunny"></i>
+
+</body>
+</html>
+<script src="js/keys.js"></script>
+<script src="js/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    var cardInfoArray = [];
+    var darkSkyData = $.get('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/3906045cacbf49020bba5e916ac2f5b0/29.4241,-98.4936');
+    darkSkyData.done(function (data) {
+        console.log(data);
+
+
+        for (let i = 0; i < 3 ; i++){
+            var weatherStatus = data.daily.data[i].icon.split('');
+            weatherStatus[0] = weatherStatus[0].toUpperCase();
+            weatherStatus = weatherStatus.join('');
+            cardInfoArray.push(
+                {
+                    high : data.daily.data[i].temperatureHigh,
+                    low : data.daily.data[i].temperatureLow,
+                    weather : weatherStatus,
+                    weatherSummary : data.daily.data[i].summary,
+                    humidity : data.daily.data[i].humidity,
+                    wind : data.daily.data[i].windSpeed,
+                    pressure : data.daily.data[i].pressure
+                }
+            );
+        }
+
+        console.log(cardInfoArray);
+
+        function weatherPic(weather){
+            switch(weather){
+                case 'Rain' : return "img/rain-gif.gif";
+                case 'Cloudy' : return "img/cloudy-gif.gif";
+                case 'Sunny' : return "img/sunny.jpg";
+            }
+        }
+        for(let i = 0; i < cardInfoArray.length;i++){
+            $('#cardArea').append('<div class="card" style="width: 18rem;">\n' +
+                '    <img src="' + weatherPic(cardInfoArray[i].weather) + '" class="card-img-top" alt="...">\n' +
+                '    <div class="card-body text-center">\n' +
+                '        <h5 class="card-title" id="cardHeader1">' + cardInfoArray[i].high + '/' + cardInfoArray[i].low+ '</h5>\n' +
+                '        <p class="card-text" id="cardBody1"><p><strong>' + cardInfoArray[i].weather + ': </strong>' + cardInfoArray[i].weatherSummary+ '</p><p><strong>Humidity: </strong>' + cardInfoArray[i].humidity*100 + '%' + '</p><p><strong>Wind: </strong>' + cardInfoArray[i].wind + '</p><p><strong>Pressure: </strong>' + cardInfoArray[i].pressure  + ' </p></p> '+
+                '    </div>\n' +
+                '</div>');
+            console.log(cardInfoArray[i]);
+        }
+
+
+
+    });
+
+
+
+
+</script>

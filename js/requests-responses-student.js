@@ -189,8 +189,9 @@ $(document).ready(function(){
      * titles to your html. You may need to create a div and assign a
      * class/id to target it.
      */
-    var requestBooks = $.ajax("./data/books.json");
-    requestBooks.done(function (data) {
+   function generateBooks(){
+       var requestBooks = $.ajax("./data/books.json");
+        requestBooks.done(function (data) {
         console.log(data);
         $.each(data,function(index,book){
             $('.main').append(book.title + '<br>');
@@ -200,13 +201,21 @@ $(document).ready(function(){
     requestBooks.fail(function () {
         console.log("This request has failed");
     })
+   }
     /*
      * TO DO: Add your favorite book to the end of books.json.
      */
+    generateBooks();
+
 
     /*
      * Bonus: Create a button the refreshes the contents of your html
      * without refreshing the page.
      */
+
+   $('#refresh').click(function(){
+       $('.main').html(" ");
+       generateBooks();
+   })
 
 });

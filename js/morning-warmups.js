@@ -284,6 +284,11 @@ const name = "Colin";
 
     }
 
+    function randomBoolean(){
+        var randomInt = Math.floor(Math.random() * 2);
+        return randomInt !== 0;
+    }
+
 
 // console.log(returnHi());
 // console.log(helloName(name));
@@ -322,7 +327,8 @@ const name = "Colin";
 //     console.log(capitalizeAllNames(['ron weasley', 'harry potter', 'hermione granger']));
 //     console.log(notRegistered(students));
 //     console.log(sortHamsterHeight(hamsters));
-    console.log(spellOutNumber(5));
+//     console.log(spellOutNumber(5));
+    console.log(randomBoolean());
 })();
 var array = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
 

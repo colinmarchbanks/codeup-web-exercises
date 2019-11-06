@@ -30,5 +30,14 @@
             "tool"
         ],
         "price": 10
+    },
+    {
+        "title": "Rats",
+        "quantity": 10,
+        "categories": [
+            "pests",
+            "not actually tools"
+        ],
+        "price": "Well pay you to get rid of these."
     }
 ]
