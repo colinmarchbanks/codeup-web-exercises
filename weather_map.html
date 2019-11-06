@@ -5,6 +5,16 @@
     <title>Weather Map</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/weather-icons.min.css">
+    <style>
+        i {
+            font-size: 30px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color:white;
+        }
+
+    </style>
 </head>
 <body>
 <div class="jumbotron py-2">
@@ -21,7 +31,7 @@
 
 </div>
 
-<i class="wi wi-day-sunny"></i>
+
 
 </body>
 </html>
@@ -32,6 +42,18 @@
 <script>
     var cardInfoArray = [];
     var darkSkyData = $.get('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/3906045cacbf49020bba5e916ac2f5b0/29.4241,-98.4936');
+    var iconArray = [
+        "wi wi-day-sunny position-absolute",
+        "wi wi-night-clear position-absolute",
+        "wi wi-raindrop position-absolute",
+        "wi wi-snowflake-cold position-absolute",
+        "wi wi-sleet position-absolute",
+        "wi wi-strong-wind position-absolute",
+        "wi wi-fog position-absolute",
+        "wi wi-cloudy position-absolute",
+        "wi wi-day-cloudy position-absolute",
+        "wi wi-night-alt-cloudy position-absolute"
+    ];
     darkSkyData.done(function (data) {
         console.log(data);
 
@@ -48,9 +70,12 @@
                     weatherSummary : data.daily.data[i].summary,
                     humidity : data.daily.data[i].humidity,
                     wind : data.daily.data[i].windSpeed,
-                    pressure : data.daily.data[i].pressure
+                    pressure : data.daily.data[i].pressure,
+                    time : data.daily.data[i].pressure.time,
+                    icon : data.daily.data[i].icon
                 }
             );
+            console.log(data.daily.data[i].icon);
         }
 
         console.log(cardInfoArray);
@@ -62,15 +87,38 @@
                 case 'Sunny' : return "img/sunny.jpg";
             }
         }
+
+        function weatherIcon(weather,time){
+            var dateObject = new Date(time * 1000);
+            console.log(dateObject);
+            switch (weather){
+                case 'clear-day':return iconArray[0];
+                case 'clear-night':return iconArray[1];
+                case 'rain':return iconArray[2];
+                case 'snow':return iconArray[3];
+                case 'sleet':return iconArray[4];
+                case 'wind':return iconArray[5];
+                case 'fog':return iconArray[6];
+                case 'cloudy':return iconArray[7];
+                case 'partly-cloudy-day':return iconArray[8];
+                case 'partly-cloudy-night':return iconArray[9];
+            }
+        }
+
+
         for(let i = 0; i < cardInfoArray.length;i++){
+            var dateObject = new Date(data.daily.data[i].time * 1000);
             $('#cardArea').append('<div class="card" style="width: 18rem;">\n' +
+                '    <i class="'+ weatherIcon(cardInfoArray[i].icon) +'"></i>' +
                 '    <img src="' + weatherPic(cardInfoArray[i].weather) + '" class="card-img-top" alt="...">\n' +
-                '    <div class="card-body text-center">\n' +
-                '        <h5 class="card-title" id="cardHeader1">' + cardInfoArray[i].high + '/' + cardInfoArray[i].low+ '</h5>\n' +
+                '    <h4 class="card-title my-0 position-absolute text-white text-right w-100 pr-2">' + (dateObject.getMonth()+1) + '/' + dateObject.getDate() + '</h4>' +
+                '    <div class="card-body text-center pt-2">\n' +
+                '        <h5 class="card-title" id="cardHeader1">' + Math.round(cardInfoArray[i].high) + '° / ' + Math.round(cardInfoArray[i].low)+ '°</h5>\n' +
                 '        <p class="card-text" id="cardBody1"><p><strong>' + cardInfoArray[i].weather + ': </strong>' + cardInfoArray[i].weatherSummary+ '</p><p><strong>Humidity: </strong>' + cardInfoArray[i].humidity*100 + '%' + '</p><p><strong>Wind: </strong>' + cardInfoArray[i].wind + '</p><p><strong>Pressure: </strong>' + cardInfoArray[i].pressure  + ' </p></p> '+
                 '    </div>\n' +
                 '</div>');
             console.log(cardInfoArray[i]);
+            console.log(weatherIcon(cardInfoArray[i].icon));
         }
 
 
