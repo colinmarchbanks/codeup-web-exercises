@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Weather Map</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/weather-icons.min.css">
     <style>
         i {
@@ -14,6 +16,24 @@
             color:white;
         }
 
+        .card-img-top{
+            height:10em;
+        }
+
+        .coordinates {
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            position: absolute;
+            bottom: 40px;
+            left: 10px;
+            padding:5px 10px;
+            margin: 0;
+            font-size: 11px;
+            line-height: 18px;
+            border-radius: 3px;
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -22,16 +42,20 @@
     <p class="lead">This Weather Map can be used to get detailed weather information about any area on the planet.</p>
 </div>
 
+<div id='map' style='width: 100%; height: 400px;'></div>
+<pre id='coordinates' class='coordinates'></pre>
+
 <div class="jumbotron jumbotron-fluid my-2 py-0">
     <div class="container">
         <h1 class="display-4">Three Day Forecast</h1>
     </div>
 </div>
-<div class = "container d-flex justify-content-between" id="cardArea">
+<div class = "container d-flex justify-content-between" id="cardArea"></div>
 
+<div class="d-flex justify-content-center mt-5">
+    <input type="text" id="lat" placeholder="Lat"><input type="text" id="lng" placeholder="Long">
+    <button id="latLngSearch">Search Lat/Long</button>
 </div>
-
-
 
 </body>
 </html>
@@ -39,6 +63,28 @@
 <script src="js/jquery-3.4.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/outdoors-v11'
+    });
+    map.addControl(new mapboxgl.NavigationControl());
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([0, 0])
+        .addTo(map);
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    }
+
+    marker.on('dragend', onDragEnd);
+</script>
 <script>
     var cardInfoArray = [];
     var darkSkyData = $.get('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/3906045cacbf49020bba5e916ac2f5b0/29.4241,-98.4936');
@@ -53,6 +99,18 @@
         "wi wi-cloudy position-absolute",
         "wi wi-day-cloudy position-absolute",
         "wi wi-night-alt-cloudy position-absolute"
+    ];
+    var picArray = [
+        "img/sunny.jpg",
+        "img/clear-sky.jpg",
+        "img/rain-gif.gif",
+        "img/snowing.gif",
+        "img/sleet.gif",
+        "img/windy.gif",
+        "img/fog.gif",
+        "img/cloudy-gif.gif",
+        "img/partially-cloudy-day.jpg",
+        "img/partially-cloudy-night.jpg"
     ];
     darkSkyData.done(function (data) {
         console.log(data);
@@ -80,37 +138,12 @@
 
         console.log(cardInfoArray);
 
-        function weatherPic(weather){
-            switch(weather){
-                case 'Rain' : return "img/rain-gif.gif";
-                case 'Cloudy' : return "img/cloudy-gif.gif";
-                case 'Sunny' : return "img/sunny.jpg";
-            }
-        }
-
-        function weatherIcon(weather,time){
-            var dateObject = new Date(time * 1000);
-            console.log(dateObject);
-            switch (weather){
-                case 'clear-day':return iconArray[0];
-                case 'clear-night':return iconArray[1];
-                case 'rain':return iconArray[2];
-                case 'snow':return iconArray[3];
-                case 'sleet':return iconArray[4];
-                case 'wind':return iconArray[5];
-                case 'fog':return iconArray[6];
-                case 'cloudy':return iconArray[7];
-                case 'partly-cloudy-day':return iconArray[8];
-                case 'partly-cloudy-night':return iconArray[9];
-            }
-        }
-
 
         for(let i = 0; i < cardInfoArray.length;i++){
             var dateObject = new Date(data.daily.data[i].time * 1000);
             $('#cardArea').append('<div class="card" style="width: 18rem;">\n' +
                 '    <i class="'+ weatherIcon(cardInfoArray[i].icon) +'"></i>' +
-                '    <img src="' + weatherPic(cardInfoArray[i].weather) + '" class="card-img-top" alt="...">\n' +
+                '    <img src="' + weatherPic(cardInfoArray[i].icon) + '" class="card-img-top" alt="...">\n' +
                 '    <h4 class="card-title my-0 position-absolute text-white text-right w-100 pr-2">' + (dateObject.getMonth()+1) + '/' + dateObject.getDate() + '</h4>' +
                 '    <div class="card-body text-center pt-2">\n' +
                 '        <h5 class="card-title" id="cardHeader1">' + Math.round(cardInfoArray[i].high) + '° / ' + Math.round(cardInfoArray[i].low)+ '°</h5>\n' +
@@ -119,13 +152,101 @@
                 '</div>');
             console.log(cardInfoArray[i]);
             console.log(weatherIcon(cardInfoArray[i].icon));
+            console.log(weatherPic(cardInfoArray[i].icon));
         }
 
 
 
     });
 
+    $('#latLngSearch').click(function () {
+        var newLat = lat.value;
+        var newLng = lng.value;
+        cardInfoArray = [];
+        console.log(newLng);
+        console.log(newLat);
+        $('#cardArea').html('');
+        darkSkyData = $.get('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/3906045cacbf49020bba5e916ac2f5b0/' + newLat + ',' + newLng);
+        darkSkyData.done(function (data) {
+            console.log(data);
 
+
+            for (let i = 0; i < 3; i++) {
+                var weatherStatus = data.daily.data[i].icon.split('');
+                weatherStatus[0] = weatherStatus[0].toUpperCase();
+                weatherStatus = weatherStatus.join('');
+                cardInfoArray.push(
+                    {
+                        high: data.daily.data[i].temperatureHigh,
+                        low: data.daily.data[i].temperatureLow,
+                        weather: weatherStatus,
+                        weatherSummary: data.daily.data[i].summary,
+                        humidity: data.daily.data[i].humidity,
+                        wind: data.daily.data[i].windSpeed,
+                        pressure: data.daily.data[i].pressure,
+                        time: data.daily.data[i].pressure.time,
+                        icon: data.daily.data[i].icon
+                    }
+                );
+                console.log(data.daily.data[i].icon);
+            }
+
+            console.log(cardInfoArray);
+
+
+            for (let i = 0; i < cardInfoArray.length; i++) {
+                var dateObject = new Date(data.daily.data[i].time * 1000);
+                $('#cardArea').append('<div class="card" style="width: 18rem;">\n' +
+                    '    <i class="' + weatherIcon(cardInfoArray[i].icon) + '"></i>' +
+                    '    <img src="' + weatherPic(cardInfoArray[i].icon) + '" class="card-img-top" alt="...">\n' +
+                    '    <h4 class="card-title my-0 position-absolute text-white text-right w-100 pr-2">' + (dateObject.getMonth() + 1) + '/' + dateObject.getDate() + '</h4>' +
+                    '    <div class="card-body text-center pt-2">\n' +
+                    '        <h5 class="card-title" id="cardHeader1">' + Math.round(cardInfoArray[i].high) + '° / ' + Math.round(cardInfoArray[i].low) + '°</h5>\n' +
+                    '        <p class="card-text" id="cardBody1"><p><strong>' + cardInfoArray[i].weather + ': </strong>' + cardInfoArray[i].weatherSummary + '</p><p><strong>Humidity: </strong>' + cardInfoArray[i].humidity * 100 + '%' + '</p><p><strong>Wind: </strong>' + cardInfoArray[i].wind + '</p><p><strong>Pressure: </strong>' + cardInfoArray[i].pressure + ' </p></p> ' +
+                    '    </div>\n' +
+                    '</div>');
+                console.log(cardInfoArray[i]);
+                console.log(weatherIcon(cardInfoArray[i].icon));
+                console.log(weatherPic(cardInfoArray[i].icon));
+            }
+
+        });
+
+    });
+
+    function weatherIcon(weather,time){
+        var dateObject = new Date(time * 1000);
+        console.log(dateObject);
+        switch (weather){
+            case 'clear-day':return iconArray[0];
+            case 'clear-night':return iconArray[1];
+            case 'rain':return iconArray[2];
+            case 'snow':return iconArray[3];
+            case 'sleet':return iconArray[4];
+            case 'wind':return iconArray[5];
+            case 'fog':return iconArray[6];
+            case 'cloudy':return iconArray[7];
+            case 'partly-cloudy-day':return iconArray[8];
+            case 'partly-cloudy-night':return iconArray[9];
+        }
+    }
+
+    function weatherPic(weather,time){
+        var dateObject = new Date(time * 1000);
+        console.log(dateObject);
+        switch (weather){
+            case 'clear-day':return picArray[0];
+            case 'clear-night':return picArray[1];
+            case 'rain':return picArray[2];
+            case 'snow':return picArray[3];
+            case 'sleet':return picArray[4];
+            case 'wind':return picArray[5];
+            case 'fog':return picArray[6];
+            case 'cloudy':return picArray[7];
+            case 'partly-cloudy-day':return picArray[8];
+            case 'partly-cloudy-night':return picArray[9];
+        }
+    }
 
 
 </script>
