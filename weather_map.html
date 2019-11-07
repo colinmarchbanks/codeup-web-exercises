@@ -7,18 +7,29 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/weather-icons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Jomolhari|Merriweather:700&display=swap" rel="stylesheet">
     <style>
+
+        .merriweather{
+            font-family: 'Merriweather', serif;
+        }
+
+        .jomolhari{
+            font-family: 'Jomolhari', serif;
+        }
+
         i {
             font-size: 30px;
             position: absolute;
-            top: 5px;
-            left: 5px;
+            top: 7px;
+            left: 7px;
             color:white;
             text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         }
 
         .text-white{
             text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            color: #FEF7F1;
         }
 
         .card-img-top{
@@ -33,9 +44,6 @@
             background-color: #62b8bb;
         }
 
-        .bg-blue{
-            background-color: #a1aeae;
-        }
 
         .card{
             background-color: #9cb1a0;
@@ -45,25 +53,35 @@
             color: #9cb1a0;
         }
 
+        .stormgif{
+            background-image: url("img/earthweather.jpeg");
+            background-size: cover;
+        }
+
+
+
+
+
+
+
 
     </style>
 </head>
 <body class="bg-darkblue">
-<div class="jumbotron py-2 m-0 header pl-5">
-    <h1 class="display-4">Weather Map</h1>
-    <p class="lead">This Weather Map can be used to get detailed weather information about any area on the planet.</p>
+<div class="jumbotron py-2 m-0 header pl-5 stormgif">
+    <h1 class="display-4 merriweather text-center text-white">Weather Map</h1>
 </div>
-<div class="jumbotron jumbotron-fluid  py-0 bg-blue">
+<div class="jumbotron jumbotron-fluid  py-0 header">
     <div class="container d-flex justify-content-between">
-        <h1 class="display-4">Three Day Forecast</h1>
-        <h5 class="h-100 my-auto" id="draggedLocation"></h5>
+        <h1 class="merriweather pt-1">Three Day Forecast</h1>
+        <h5 class="h-100 my-auto jomolhari" id="draggedLocation"></h5>
     </div>
 </div>
-<div class = "container d-flex justify-content-between mb-4" id="cardArea"></div>
+<div class = "container d-flex justify-content-between mb-4 jomolhari" id="cardArea"></div>
 <div id='map' style='width: 100%; height: 400px;'></div>
 <div class="d-flex justify-content-center my-2">
-    <input class = "w-75" type="text" id="geocoder" placeholder="Search by Address">
-    <button id="geocoderSearch">Submit Search</button>
+    <input class = "w-75 jomolhari" type="text" id="geocoder" placeholder="Search by Address">
+    <button id="geocoderSearch" class="jomolhari">Submit Search</button>
 </div>
 
 
