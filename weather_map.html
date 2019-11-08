@@ -18,6 +18,8 @@
             font-family: 'Jomolhari', serif;
         }
 
+
+
         i {
             font-size: 30px;
             position: absolute;
@@ -59,12 +61,6 @@
         }
 
 
-
-
-
-
-
-
     </style>
 </head>
 <body class="bg-darkblue">
@@ -78,11 +74,12 @@
     </div>
 </div>
 <div class = "container d-flex justify-content-between mb-4 jomolhari" id="cardArea"></div>
-<div id='map' style='width: 100%; height: 400px;'></div>
-<div class="d-flex justify-content-center my-2">
+<div class="d-flex justify-content-center my-2 container-fluid">
     <input class = "w-75 jomolhari" type="text" id="geocoder" placeholder="Search by Address">
     <button id="geocoderSearch" class="jomolhari">Submit Search</button>
 </div>
+<div id='map' style='width: 100%; height: 400px;'></div>
+
 
 
 
@@ -230,14 +227,14 @@
 
     $('#geocoderSearch').click(function () {
         var geocodeThis = geocoder.value;
+        $("#draggedLocation").html(geocodeThis);
         geocode(geocodeThis, mapboxToken).then(function(result) {
             marker.setLngLat(result);
             map.setCenter(result);
             map.setZoom(4);
-            $("#draggedLocation").html('San Antonio, Texas 78205, United States');
             cardInfoArray = [];
             $('#cardArea').html('');
-            darkSkyData = $.get('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/3906045cacbf49020bba5e916ac2f5b0/' + result[0] + ',' + result[1]);
+            darkSkyData = $.get('https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/3906045cacbf49020bba5e916ac2f5b0/' + result[1].toString() + ',' + result[0].toString());
             darkSkyData.done(function (data) {
                 for (let i = 0; i < 3; i++) {
                     var weatherStatus = data.daily.data[i].icon.split('');
@@ -262,7 +259,7 @@
                     $('#cardArea').append('<div class="card" style="width: 18rem;">\n' +
                         '    <i class="' + weatherIcon(cardInfoArray[i].icon) + '"></i>' +
                         '    <img src="' + weatherPic(cardInfoArray[i].icon) + '" class="card-img-top" alt="...">\n' +
-                        '    <h4 class="card-title my-0 position-absolute text-white text-right w-100 pr-2">' + (dateObject.getMonth() + 1) + '/' + dateObject.getDate() + '</h4>' +
+                         '    <h4 class="card-title my-0 position-absolute text-white text-right w-100 pr-2">' + (dateObject.getMonth() + 1) + '/' + dateObject.getDate() + '</h4>' +
                         '    <div class="card-body text-center pt-2">\n' +
                         '        <h5 class="card-title" id="cardHeader1">' + Math.round(cardInfoArray[i].high) + '° / ' + Math.round(cardInfoArray[i].low) + '°</h5>\n' +
                         '        <p class="card-text" id="cardBody1"><p><strong>' + cardInfoArray[i].weather + ': </strong>' + cardInfoArray[i].weatherSummary + '</p><p><strong>Humidity: </strong>' + cardInfoArray[i].humidity * 100 + '%' + '</p><p><strong>Wind: </strong>' + cardInfoArray[i].wind + '</p><p><strong>Pressure: </strong>' + cardInfoArray[i].pressure + ' </p></p> ' +

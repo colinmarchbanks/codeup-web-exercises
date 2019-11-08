@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale = 1">
-    <title>Practice</title>
-    <link rel="stylesheet" href="css/practice.css">
-    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+    <style>
+        .foo {
+            background-color: red;
+        }
+    </style>
+
+<!--    <input id="B" value="I'm so fancy">-->
+<!--    <button id="fancyB">Hello Test Taker!</button>-->
+<!--    <h1 id="codeup">Hello Codeup</h1>-->
+    <h1 id="user_display">show the input here with button click</h1>
+    <input id="user_input">
+    <button id="clickme">click me</button>
+    <p>Paragraph #1</p>
+    <p>Paragraph #2</p>
+    <p>Paragraph #3</p>
+    <p>Paragraph #4</p>
+    <p>Paragraph #5</p>
+    <p>Paragraph #6</p>
 </head>
 <body>
-<!--    <h1>-->
-<!--        <span id="red">H</span>-->
-<!--        <span id="orange">E</span>-->
-<!--        <span id="yellow">L</span>-->
-<!--        <span id="green">L</span>-->
-<!--        <span id="blue">O</span>-->
-<!--    </h1>-->
-<!--    <div class ="box" id="box1">-->
-<!--        Box 1-->
-<!--    </div>-->
+<h1 class="foo">Codeup Rocks!</h1>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    "use strict";
 
-<!--    <div class ="box" id="box2">-->
-<!--        Box 1-->
-<!--    </div>-->
+    $(document).ready(function() {
+        $('.foo').css('background-color', 'blue');
+    });
 
-<script src="js/practice.js"></script>
+    $('#fancyB').hover(
+        function() {
+            $(this).css('background-color', 'papayawhip');
+        },
+        function() {
+            $(this).css('background-color', 'red');
+        }
+    );
+
+
+    $(document).ready(function() {
+        $('#codeup').hover(
+            function() {
+                $(this).css('background-color', '#FF0');
+            },
+            function() {
+                $(this).css('background-color', '#FFF');
+            }
+        );
+    });
+
+    $('#clickme').click(function(){
+        $('#user_display').html($('#user_input').val());
+    });
+
+    $('p').addClass('foo');
+
+    var $paragraphs = $('p');
+    console.log($paragraphs.last().html());
+</script>
 </body>
 </html>
