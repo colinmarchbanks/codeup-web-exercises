@@ -289,6 +289,18 @@ const name = "Colin";
         return randomInt !== 0;
     }
 
+    function returnEvensInArray(arr){
+        // var bucket = [];
+        // for(let i = 0;i<arr.length;i++){
+        //     if(arr[i] % 2 === 0){
+        //         bucket.push(arr(i));
+        //     }
+        // }
+        // return bucket;
+
+        return arr.filter(number => number % 2 === 0);
+    }
+
 
 // console.log(returnHi());
 // console.log(helloName(name));
@@ -328,7 +340,9 @@ const name = "Colin";
 //     console.log(notRegistered(students));
 //     console.log(sortHamsterHeight(hamsters));
 //     console.log(spellOutNumber(5));
-    console.log(randomBoolean());
+//     console.log(randomBoolean());
+    var testArray = [1,2,3,4,5,6,7,8];
+    console.log(returnEvensInArray(testArray));
 })();
 var array = ['John', 'Paul', 'George', 'Ringo', 'Santana'];
 

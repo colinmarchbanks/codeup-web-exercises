@@ -118,6 +118,7 @@
         reverseGeocode(lngLat,mapboxToken).then(function (dragResults) {
             $("#draggedLocation").html(dragResults);
         });
+        console.log(lngLat);
         map.flyTo({center: lngLat});
         var newLat = lngLat.lat;
         var newLng = lngLat.lng;
