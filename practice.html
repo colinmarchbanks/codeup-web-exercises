@@ -7,58 +7,14 @@
         }
     </style>
 
-<!--    <input id="B" value="I'm so fancy">-->
-<!--    <button id="fancyB">Hello Test Taker!</button>-->
-<!--    <h1 id="codeup">Hello Codeup</h1>-->
-    <h1 id="user_display">show the input here with button click</h1>
-    <input id="user_input">
-    <button id="clickme">click me</button>
-    <p>Paragraph #1</p>
-    <p>Paragraph #2</p>
-    <p>Paragraph #3</p>
-    <p>Paragraph #4</p>
-    <p>Paragraph #5</p>
-    <p>Paragraph #6</p>
 </head>
 <body>
 <h1 class="foo">Codeup Rocks!</h1>
+<script src="js/keys.js"></script>
 <script src="js/jquery-3.4.1.js"></script>
+<script src="js/promises.js"></script>
 <script>
-    "use strict";
 
-    $(document).ready(function() {
-        $('.foo').css('background-color', 'blue');
-    });
-
-    $('#fancyB').hover(
-        function() {
-            $(this).css('background-color', 'papayawhip');
-        },
-        function() {
-            $(this).css('background-color', 'red');
-        }
-    );
-
-
-    $(document).ready(function() {
-        $('#codeup').hover(
-            function() {
-                $(this).css('background-color', '#FF0');
-            },
-            function() {
-                $(this).css('background-color', '#FFF');
-            }
-        );
-    });
-
-    $('#clickme').click(function(){
-        $('#user_display').html($('#user_input').val());
-    });
-
-    $('p').addClass('foo');
-
-    var $paragraphs = $('p');
-    console.log($paragraphs.last().html());
 </script>
 </body>
 </html>

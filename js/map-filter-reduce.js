@@ -47,11 +47,14 @@ let totalYears = users.reduce((accumulation,user) => {
     return accumulation;
 },0);
 
-console.log(totalYears);
+let averageYearsOfExperience = totalYears/users.length;
 
-let longestEmail = users.reduce((longestLength,user) => {
-    if(longestLength.length < user.email.length){
-        longestLength = user.email;
+console.log(totalYears);
+console.log(averageYearsOfExperience);
+
+let longestEmail = emails.reduce((longestLength,email) => {
+    if(longestLength.length < email.length){
+        longestLength = email;
     }
     return longestLength;
 }, " ");
