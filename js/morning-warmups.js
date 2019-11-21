@@ -301,6 +301,13 @@ const name = "Colin";
         return arr.filter(number => number % 2 === 0);
     }
 
+    const helloPromise = () => {
+        return new Promise((resolve) => {
+            resolve("Hello");
+        })
+    };
+
+    helloPromise().then(message => {document.getElementsByTagName('body')[0].innerHTML += `<h1>${message}</h1>`});
 
 // console.log(returnHi());
 // console.log(helloName(name));
