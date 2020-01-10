@@ -20,15 +20,15 @@
 <script src="js/jquery-2.2.4.js"></script>
 <script>
     "use strict";
-    var audio = new Audio('audio/ray_gun-Mike_Koenig-1169060422.wav');
-    var code = "";
+    let audio = new Audio('audio/ray_gun-Mike_Koenig-1169060422.wav');
+    let code = "";
 
     $(document).keyup(function(event){
-        var number = event.keyCode;
-        var string = number.toString();
+        let number = event.keyCode;
+        let string = number.toString();
         code += string;
         console.log(code);
-        runCode('3840384037393739656613','url(\'img/contra-gif.gif\')','You just got 30 lives!');
+        runCode('3838404037393739666513','url(\'img/contra-gif.gif\')','You just got 30 lives!');
         runCode('65666567656666','url(\'img/MK-blood.gif\')','Blood mode!!');
         runCode('8069788690737669','url(\'img/battletoads.gif\')','9 more lives!');
         runCode('9069766865','url(\'img/linksAsleepening.gif\')','Start the game from the second quest!');
@@ -44,6 +44,8 @@
             function display() {
                 if (countdown === 0) {
                     $('#game-center').css ('background-image','none');
+                    $('#game-center').html("<h1>Hello world</h1>");
+                    $('.titles')
                     $('#main-heading').html('Enter code cheater!');
                 } else if (countdown > 0) {
                     $('#game-center').css({'background-image':image,'background-size':'100% 100%'});

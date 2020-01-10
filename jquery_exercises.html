@@ -21,6 +21,7 @@
     "use strict";
 
     $('li').hover( function (){
+        $('li').css('cursor','pointer');
         let ran = (Math.random()+1) * Math.floor(25);
         $(this).css({'font-size':ran,'color':'red'});},
         function () {
